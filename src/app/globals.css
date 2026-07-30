@@ -19,6 +19,8 @@
   --color-subtle: #516A86;
   --color-success: #32B769;
   --color-error: #E5484D;
+  --color-bgPrimary: rgba(235,184,17,0.10);
+  --color-borderPrimary: rgba(235,184,17,0.40);
 }
 
 * {

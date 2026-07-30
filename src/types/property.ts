@@ -1,4 +1,4 @@
-export type PropertyStatus = "off-plan" | "completed";
+export type PropertyStatus = "off-plan" | "completed" | "Rental";
 export type PropertyCategory = "apartment" | "villa" | "penthouse" | "townhouse";
 export type Emirate =
   | "dubai"
