@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "name": "Emaar Properties",
+    "slug": "emaar-properties",
+    "logo": "/images/developers/emaar.svg",
+    "description": "Leading UAE master developer.",
+    "website": "https://www.emaar.com"
+  },
+  {
+    "id": "2",
+    "name": "Damac Properties",
+    "slug": "damac-properties",
+    "logo": "/images/developers/damac.svg",
+    "description": "Luxury real estate developer.",
+    "website": "https://www.damacproperties.com"
+  }
+]

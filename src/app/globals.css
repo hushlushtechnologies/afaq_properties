@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: #000614;
+  --color-surface: #081120;
+  --color-card: #050D24;
+  --color-elevated: #081120;
+  --color-primary: #EBB811;
+  --color-primary-foreground: #000614;
+  --color-secondary: #050D24;
+  --color-secondary-foreground: #FFFFFF;
+  --color-accent: #C7A35D;
+  --color-border: #0F1D3D;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #E6ECF3;
+  --color-muted: #93C5FD;
+  --color-subtle: #516A86;
+  --color-success: #32B769;
+  --color-error: #E5484D;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-lora), serif;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(245, 245, 240, 0.25);
+}
+
+.hero-social-bar {
+  clip-path: polygon(18% 0%, 82% 0%, 100% 100%, 0% 100%);
+}
