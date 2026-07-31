@@ -43,7 +43,11 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
             aria-label="Mobile"
             initial="hidden"
             animate="visible"
-            variants={{ visible: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } } }}
+            variants={{
+              visible: {
+                transition: { staggerChildren: 0.06, delayChildren: 0.1 },
+              },
+            }}
             className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 py-4"
           >
             {NAV_LINKS.map((link) => {
@@ -51,14 +55,17 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
               return (
                 <motion.div
                   key={link.href}
-                  variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 16 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
                 >
                   <Link
                     href={link.href}
                     onClick={onClose}
                     className={cn(
                       "block border-b border-border py-4 font-heading text-sm text-text-secondary transition-colors",
-                      isActive && "text-primary"
+                      isActive && "text-primary",
                     )}
                   >
                     {link.label}

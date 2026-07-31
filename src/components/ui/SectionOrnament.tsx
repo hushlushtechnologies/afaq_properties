@@ -1,28 +1,43 @@
-function SparkleIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" />
-    </svg>
-  );
-}
-
 export function SectionOrnament() {
   return (
-    <>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-0 hidden items-end gap-2 sm:flex"
-      >
-        <span className="h-10 w-px bg-gradient-to-t from-primary/50 to-transparent" />
-        <SparkleIcon className="mb-1 h-3 w-3 text-primary/60" />
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 hidden md:block"
+    >
+      {/* Left vertical line */}
+      <span className="absolute left-8 top-0 h-full w-px bg-border" />
+
+      {/* Right vertical line */}
+      <span className="absolute right-8 top-0 h-full w-px bg-border" />
+
+      {/* Bottom line */}
+      <span className="absolute bottom-8 left-8 right-0 h-px bg-border" />
+
+      {/* Left bottom cross */}
+      <div className="absolute bottom-8 left-8">
+        <span
+          className="absolute left-0 top-1/2 h-8 w-px -translate-y-1/2 
+          bg-gradient-to-b from-transparent via-[#ffffff] to-transparent"
+        />
+
+        <span
+          className="absolute left-1/2 top-0 h-px w-8 -translate-x-1/2 
+          bg-gradient-to-r from-transparent via-[#ffffff] to-transparent"
+        />
       </div>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 right-0 hidden items-end gap-2 sm:flex"
-      >
-        <SparkleIcon className="mb-1 h-3 w-3 text-primary/60" />
-        <span className="h-10 w-px bg-gradient-to-t from-primary/50 to-transparent" />
+
+      {/* Right bottom cross */}
+      <div className="absolute bottom-8 right-8">
+        <span
+          className="absolute left-0 top-1/2 h-8 w-px -translate-y-1/2 
+          bg-gradient-to-b from-transparent via-[#ffffff] to-transparent"
+        />
+
+        <span
+          className="absolute left-1/2 top-0 h-px w-8 -translate-x-1/2 
+          bg-gradient-to-r from-transparent via-[#ffffff] to-transparent"
+        />
       </div>
-    </>
+    </div>
   );
 }

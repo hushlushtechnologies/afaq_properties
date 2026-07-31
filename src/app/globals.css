@@ -5,22 +5,22 @@
 :root {
   --color-background: #000614;
   --color-surface: #081120;
-  --color-card: #050D24;
+  --color-card: #050d24;
   --color-elevated: #081120;
-  --color-primary: #EBB811;
+  --color-primary: #ebb811;
   --color-primary-foreground: #000614;
-  --color-secondary: #050D24;
-  --color-secondary-foreground: #FFFFFF;
-  --color-accent: #C7A35D;
-  --color-border: #0F1D3D;
-  --color-text: #FFFFFF;
-  --color-text-secondary: #E6ECF3;
-  --color-muted: #93C5FD;
-  --color-subtle: #516A86;
-  --color-success: #32B769;
-  --color-error: #E5484D;
-  --color-bgPrimary: rgba(235,184,17,0.10);
-  --color-borderPrimary: rgba(235,184,17,0.40);
+  --color-secondary: #050d24;
+  --color-secondary-foreground: #ffffff;
+  --color-accent: #c7a35d;
+  --color-border: #0f1d3d;
+  --color-text: #ffffff;
+  --color-text-secondary: #e6ecf3;
+  --color-muted: #93c5fd;
+  --color-subtle: #516a86;
+  --color-success: #32b769;
+  --color-error: #e5484d;
+  --color-bgPrimary: rgba(235, 184, 17, 0.1);
+  --color-borderPrimary: rgba(235, 184, 17, 0.4);
 }
 
 * {
@@ -35,7 +35,9 @@ html {
   html {
     scroll-behavior: auto;
   }
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -50,7 +52,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-lora), serif;
 }
 
@@ -59,13 +66,15 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-primary-foreground);
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-a, button {
+a,
+button {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -86,4 +95,13 @@ button {
 
 .hero-social-bar {
   clip-path: polygon(18% 0%, 82% 0%, 100% 100%, 0% 100%);
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

@@ -17,8 +17,13 @@ export function Section({
   id,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("relative py-20 md:py-36", className)}>
-      <div className={cn("mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8", containerClassName)}>
+    <section id={id} className={cn("relative py-20 md:py-36  ", className)}>
+      <div
+        className={cn(
+          "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 ",
+          containerClassName,
+        )}
+      >
         {children}
       </div>
       {ornament && <SectionOrnament />}

@@ -44,21 +44,28 @@ export function Navbar() {
         animate="visible"
         className="fixed inset-x-0 top-4 sm:top-12 z-50"
       >
-      <Container className={cn(
-                            "transition-all duration-500",
-                            scrolled ? "max-w-6xl" : "max-w-7xl"
-                          )}>
+        <Container
+          className={cn(
+            "transition-all duration-500",
+            scrolled ? "max-w-6xl" : "max-w-7xl",
+          )}
+        >
           <div
             className={cn(
-              "flex items-center border-border  justify-between rounded-lg border px-6 py-2.5 backdrop-blur-xl transition-all duration-400 ease-smooth md:px-20",
-              scrolled ? " bg-card-gradient/60 shadow md:px-10" : " bg-card-gradient shadow-sm md:px-20"
+              "flex items-center    justify-between rounded-lg border px-6 py-2.5 backdrop-blur-xl transition-all duration-400 ease-smooth md:px-20",
+              scrolled
+                ? " bg-card-gradient/60 border-blue-500/15 shadow md:px-10"
+                : " bg-card-gradient border-border  shadow-sm md:px-20",
             )}
           >
             <Link href="/" aria-label="Afaq Al Manzil Properties — Home">
               <Logo />
             </Link>
 
-            <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+            <nav
+              className="hidden items-center gap-7 lg:flex"
+              aria-label="Primary"
+            >
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -67,7 +74,7 @@ export function Navbar() {
                     href={link.href}
                     className={cn(
                       "relative font-body text-xs text-text-secondary transition-colors duration-400 hover:text-accent",
-                      isActive && "text-primary"
+                      isActive && "text-primary",
                     )}
                   >
                     {link.label}
@@ -99,7 +106,11 @@ export function Navbar() {
         </Container>
       </motion.header>
 
-      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} pathname={pathname} />
+      <MobileMenu
+        open={mobileOpen}
+        onClose={() => setMobileOpen(false)}
+        pathname={pathname}
+      />
     </>
   );
 }

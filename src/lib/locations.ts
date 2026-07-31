@@ -1,26 +1,19 @@
-import propertiesData from "@/data/properties.json";
-import locationsData from "@/data/locations.json";
-import { Property } from "@/types/property";
-import { Location } from "@/types/location";
+import communitiesData from "@/data/community.json";
+import { Emirate } from "@/types/property";
+import { Community } from "@/types/community";
 
 /**
- * Returns only the emirates that actually have at least one published
- * property, sourced from properties.json. Add more entries to
- * locations.json + a property with that emirate to make a new tile appear.
+ * Returns communities explicitly marked "featured" within a given emirate,
+ * regardless of whether a property references them yet — matches how a
+ * content editor would toggle "Featured Community" in Sanity. Defaults to
+ * Dubai + a max of 5 per current homepage requirement.
  */
-export function getAvailableLocations(): Location[] {
-  const properties = propertiesData as Property[];
-  const availableSlugs = new Set(
-    properties.filter((p) => p.publishStatus === "published").map((p) => p.emirate)
-  );
-
-  const locations = (locationsData as Location[]).filter((loc) =>
-    availableSlugs.has(loc.slug)
-  );
-
-  return locations.sort((a, b) => {
-    if (a.featured && !b.featured) return -1;
-    if (!a.featured && b.featured) return 1;
-    return 0;
-  });
+export function getFeaturedCommunities(
+  emirate: Emirate = "dubai",
+  limit = 5,
+): Community[] {
+  const communities = communitiesData as Community[];
+  return communities
+    .filter((c) => c.emirate === emirate && c.featured)
+    .slice(0, limit);
 }

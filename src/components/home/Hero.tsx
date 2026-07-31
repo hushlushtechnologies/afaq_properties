@@ -37,7 +37,11 @@ export function Hero() {
 
   const item = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: EASE_SMOOTH } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.9, ease: EASE_SMOOTH },
+    },
   };
 
   return (
@@ -47,10 +51,10 @@ export function Hero() {
         loop
         muted
         playsInline
-        poster="/images/hero-poster.jpg"
+        poster="/assets/random/trust.jpg"
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src="/hero_vedio.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/85" />
@@ -59,7 +63,11 @@ export function Hero() {
         aria-hidden="true"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.4, delay: shouldReduceMotion ? 0 : 0.9, ease: EASE_SMOOTH }}
+        transition={{
+          duration: 1.4,
+          delay: shouldReduceMotion ? 0 : 0.9,
+          ease: EASE_SMOOTH,
+        }}
         className="text-stroke pointer-events-none absolute  inset-x-0 bottom-16 select-none whitespace-nowrap text-center font-heading text-[14vw] font-semibold uppercase leading-none sm:bottom-20 sm:text-[6vw]"
       >
         {HERO_CONTENT.brandText}
@@ -83,7 +91,10 @@ export function Hero() {
             {HERO_CONTENT.headingLines.map((line, i) => (
               <span key={i} className="block">
                 {line.map((word, j) => (
-                  <span key={j} className={word.highlight ? "text-primary" : undefined}>
+                  <span
+                    key={j}
+                    className={word.highlight ? "text-primary" : undefined}
+                  >
                     {word.text}
                   </span>
                 ))}
@@ -98,12 +109,19 @@ export function Hero() {
           animate="visible"
           className="relative z-10 max-w-md rounded-lg border border-border/30 bg-card/20 p-6 backdrop-blur-md sm:p-7"
         >
-          <motion.p variants={item} className="font-normal text-base text-text-secondary">
+          <motion.p
+            variants={item}
+            className="font-normal md:text-sm text-text-secondary"
+          >
             {HERO_CONTENT.description}
           </motion.p>
 
           <motion.div variants={item} className="mt-6 flex flex-wrap gap-3">
-            <Button href={HERO_CONTENT.primaryCta.href} variant="primary" size="md" >
+            <Button
+              href={HERO_CONTENT.primaryCta.href}
+              variant="primary"
+              size="md"
+            >
               {HERO_CONTENT.primaryCta.label}
               <ArrowRight size={16} />
             </Button>
@@ -112,9 +130,7 @@ export function Hero() {
               target="_blank"
               variant="ghost"
               size="md"
-              
             >
-              
               {HERO_CONTENT.secondaryCta.label}
               <FaWhatsapp size={16} />
             </Button>
@@ -125,7 +141,11 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: shouldReduceMotion ? 0 : 1.2, ease: EASE_SMOOTH }}
+        transition={{
+          duration: 0.8,
+          delay: shouldReduceMotion ? 0 : 1.2,
+          ease: EASE_SMOOTH,
+        }}
         className="absolute inset-x-0 bottom-0 z-10 flex justify-center"
       >
         <div className="hero-social-bar flex flex-col items-center gap-2 bg-text px-10 pb-4 pt-5 backdrop-blur-md sm:px-14">

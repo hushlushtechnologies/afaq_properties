@@ -53,9 +53,18 @@ const config: Config = {
         body: ["var(--font-public-sans)", "sans-serif"],
       },
       fontSize: {
-        display: ["clamp(2.75rem, 5vw, 5rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
-        h1: ["clamp(2.25rem, 4vw, 3.5rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        h2: ["clamp(1.875rem, 3vw, 2.75rem)", { lineHeight: "1.15", letterSpacing: "-0.01em" }],
+        display: [
+          "clamp(2.75rem, 5vw, 5rem)",
+          { lineHeight: "1.05", letterSpacing: "-0.02em" },
+        ],
+        h1: [
+          "clamp(2.25rem, 4vw, 3.5rem)",
+          { lineHeight: "1.1", letterSpacing: "-0.02em" },
+        ],
+        h2: [
+          "clamp(1.875rem, 3vw, 2.75rem)",
+          { lineHeight: "1.15", letterSpacing: "-0.01em" },
+        ],
         h3: ["clamp(1.5rem, 2.4vw, 2rem)", { lineHeight: "1.2" }],
         h4: ["clamp(1.25rem, 1.8vw, 1.5rem)", { lineHeight: "1.25" }],
         "body-lg": ["1.125rem", { lineHeight: "1.6" }],
@@ -97,5 +106,4 @@ const config: Config = {
   },
   plugins: [],
 };
-
 export default config;

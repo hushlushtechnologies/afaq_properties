@@ -1,5 +1,9 @@
-export type PropertyStatus = "off-plan" | "completed" | "Rental";
-export type PropertyCategory = "apartment" | "villa" | "penthouse" | "townhouse";
+export type PropertyStatus = "off-plan" | "completed" | "rental";
+export type PropertyCategory =
+  | "apartment"
+  | "villa"
+  | "penthouse"
+  | "townhouse";
 export type Emirate =
   | "dubai"
   | "abu-dhabi"
@@ -10,7 +14,13 @@ export type Emirate =
   | "umm-al-quwain";
 
 export interface AvailableUnit {
-  type: "studio" | "1-bedroom" | "2-bedroom" | "3-bedroom" | "4-bedroom" | "penthouse";
+  type:
+    | "studio"
+    | "1-bedroom"
+    | "2-bedroom"
+    | "3-bedroom"
+    | "4-bedroom"
+    | "penthouse";
   startingPrice?: number;
 }
 
@@ -28,12 +38,13 @@ export interface Property {
   featured: boolean;
   displayOrder: number;
 
-  featuredImage: string;
+  featuredImage: string; // used only in the homepage Featured Properties section
+  propertyImage: string; // used on listing cards (Off-Plan / Secondary / Properties pages)
   gallery: string[];
   brochurePdf?: string;
 
   emirate: Emirate;
-  community: string;
+  community: string; // references Community.slug
 
   status: PropertyStatus;
   category: PropertyCategory;
