@@ -17,7 +17,7 @@ export function PropertyJourney({ image, steps }: PropertyJourneyProps) {
         <>
           <Image
             src={image}
-            alt=""
+            alt="Afaq Properties - Property Journey"
             fill
             sizes="100vw"
             className="object-cover"

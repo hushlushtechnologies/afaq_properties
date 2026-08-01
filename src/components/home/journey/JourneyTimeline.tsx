@@ -72,12 +72,7 @@ export function JourneyTimeline({ steps }: JourneyTimelineProps) {
         className="absolute left-0 right-0 top-[7px] hidden h-[2px] origin-left bg-bgPrimary lg:block"
       />
 
-      <div
-        className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 sm:gap-8 lg:gap-6"
-        // style={{
-        //   gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))`,
-        // }}
-      >
+      <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 sm:gap-8 lg:gap-6">
         {steps.map((step, index) => {
           const Icon = iconMap[step.icon];
           return (
