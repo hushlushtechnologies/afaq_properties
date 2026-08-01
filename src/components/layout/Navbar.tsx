@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Menu } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -11,10 +11,11 @@ import { Logo } from "@/components/layout/Logo";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { NAV_LINKS, NAV_CTA } from "@/config/navigation";
 import { cn } from "@/lib/utils";
-import { fadeInDown } from "@/lib/motion";
+import { EASE_SMOOTH } from "@/lib/motion";
 
 export function Navbar() {
   const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -32,14 +33,29 @@ export function Navbar() {
     };
   }, [mobileOpen]);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
+  const container = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.12,
+        delayChildren: shouldReduceMotion ? 0 : 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : -12 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: EASE_SMOOTH },
+    },
+  };
 
   return (
     <>
       <motion.header
-        variants={fadeInDown}
+        variants={container}
         initial="hidden"
         animate="visible"
         className="fixed inset-x-0 top-4 sm:top-12 z-50"
@@ -58,11 +74,14 @@ export function Navbar() {
                 : " bg-card-gradient border-border  shadow-sm md:px-20",
             )}
           >
-            <Link href="/" aria-label="Afaq Al Manzil Properties — Home">
-              <Logo />
-            </Link>
+            <motion.div variants={item}>
+              <Link href="/" aria-label="Afaq Al Manzil Properties — Home">
+                <Logo />
+              </Link>
+            </motion.div>
 
-            <nav
+            <motion.nav
+              variants={item}
               className="hidden items-center gap-7 lg:flex"
               aria-label="Primary"
             >
@@ -84,15 +103,16 @@ export function Navbar() {
                   </Link>
                 );
               })}
-            </nav>
+            </motion.nav>
 
-            <div className="hidden lg:block">
+            <motion.div variants={item} className="hidden lg:block">
               <Button href={NAV_CTA.href} size="sm" variant="secondary">
                 {NAV_CTA.label}
               </Button>
-            </div>
+            </motion.div>
 
-            <button
+            <motion.button
+              variants={item}
               type="button"
               aria-label="Open menu"
               aria-expanded={mobileOpen}
@@ -101,7 +121,7 @@ export function Navbar() {
               className="flex items-center justify-center rounded-full p-2 text-text lg:hidden"
             >
               <Menu size={24} />
-            </button>
+            </motion.button>
           </div>
         </Container>
       </motion.header>

@@ -1,5 +1,10 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+
 import { cn } from "@/lib/utils";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { EASE_SMOOTH, DURATION } from "@/lib/motion";
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -18,9 +23,34 @@ export function SectionHeading({
   className,
   highlight,
 }: SectionHeadingProps) {
+  const shouldReduceMotion = useReducedMotion();
   const parts = highlight ? title.split(highlight) : [title];
+
+  const container = {
+    hidden: {},
+    visible: { transition: { staggerChildren: shouldReduceMotion ? 0 : 0.12 } },
+  };
+  const fadeItem = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: DURATION.reveal, ease: EASE_SMOOTH },
+    },
+  };
+  const maskItem = {
+    hidden: { y: shouldReduceMotion ? 0 : "100%" },
+    visible: {
+      y: "0%",
+      transition: { duration: DURATION.reveal, ease: EASE_SMOOTH },
+    },
+  };
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.4 }}
+      variants={container}
       className={cn(
         "max-w-2xl",
         align === "center" && "mx-auto text-center",
@@ -28,12 +58,18 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <Eyebrow align={align} className="mb-4">
-          {eyebrow}
-        </Eyebrow>
+        <motion.div variants={fadeItem}>
+          <Eyebrow align={align} className="mb-4">
+            {eyebrow}
+          </Eyebrow>
+        </motion.div>
       )}
-      <h2 className="font-semibold md:text-2xl text-xl text-text">
-        <span>
+
+      <div className="overflow-hidden">
+        <motion.h2
+          variants={maskItem}
+          className="font-semibold md:text-2xl text-xl text-text"
+        >
           {parts.length > 1 ? (
             <>
               {parts[0]}
@@ -43,13 +79,17 @@ export function SectionHeading({
           ) : (
             title
           )}
-        </span>
-      </h2>
+        </motion.h2>
+      </div>
+
       {description && (
-        <p className="mt-4 font-medium md:text-sm text-xs text-text-secondary">
+        <motion.p
+          variants={fadeItem}
+          className="mt-4 font-medium md:text-sm text-xs text-text-secondary"
+        >
           {description}
-        </p>
+        </motion.p>
       )}
-    </div>
+    </motion.div>
   );
 }

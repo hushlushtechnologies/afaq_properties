@@ -26,7 +26,7 @@ export function TeamGrid() {
   };
 
   return (
-    <Section>
+    <Section id="team">
       <SectionHeading
         eyebrow="Meet Our Team"
         title="The People Behind Your Property Journey"

@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/Button";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { ABOUT_STATS } from "@/data/about-stats";
 import { EASE_SMOOTH } from "@/lib/motion";
+import { ParallaxImage } from "@/components/animation/ParallaxImage";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 const CONTENT = {
   eyebrow: "About Us",
@@ -25,7 +27,7 @@ const CONTENT = {
   ],
   primaryCta: { label: "Discover Our Story", href: "/about-us" },
   secondaryCta: { label: "Explore Properties", href: "/properties" },
-  image: "/assets/office/about.png",
+  image: "/assets/office/about.jpg",
 };
 
 export function AboutAfaq() {
@@ -55,22 +57,25 @@ export function AboutAfaq() {
 
   return (
     <Section>
-      <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-12 lg:gap-16">
         <motion.div
           initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, ease: EASE_SMOOTH }}
-          className="relative h-80 w-full overflow-hidden rounded-md border border-border sm:h-[460px] lg:h-[520px]"
+          className="relative h-72 w-full overflow-hidden rounded-md border border-border sm:h-96 md:h-[420px] lg:h-[520px]"
         >
-          <Image
-            src={CONTENT.image}
-            alt="Afaq Al Manzil advisors meeting with clients"
-            fill
-            priority
-            sizes="(min-width: 1024px) 45vw, 100vw"
-            className="object-cover"
-          />
+          <ParallaxImage className="h-full w-full">
+            <Image
+              src={CONTENT.image}
+              alt="Afaq Al Manzil advisors meeting with clients"
+              fill
+              priority
+              quality={90}
+              sizes="(min-width: 640px) 30vw, 90vw"
+              className="object-cover"
+            />
+          </ParallaxImage>
         </motion.div>
 
         <motion.div
@@ -104,10 +109,16 @@ export function AboutAfaq() {
           </div>
 
           <div className="mt-7 flex flex-wrap gap-3">
-            <Button href={CONTENT.primaryCta.href} variant="primary" size="sm">
-              {CONTENT.primaryCta.label}
-              <ArrowRight size={16} />
-            </Button>
+            <Magnetic>
+              <Button
+                href={CONTENT.primaryCta.href}
+                variant="primary"
+                size="sm"
+                icon={ArrowRight}
+              >
+                {CONTENT.primaryCta.label}
+              </Button>
+            </Magnetic>
             <Button href={CONTENT.secondaryCta.href} variant="ghost" size="sm">
               {CONTENT.secondaryCta.label}
             </Button>

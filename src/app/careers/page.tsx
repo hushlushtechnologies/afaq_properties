@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Careers",
-  description: "Join the Afaq Al Manzil Properties team.",
-};
+  description:
+    "Join the Afaq Al Manzil Properties team and build your career in UAE real estate.",
+  path: "/careers",
+});
 
 export default function CareersPage() {
   return (

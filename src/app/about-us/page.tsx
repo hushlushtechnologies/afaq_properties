@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "About Us",
-  description: "Learn more about Afaq Al Manzil Properties, a UAE real estate company.",
-};
+  description:
+    "Learn about Afaq Al Manzil Properties, a trusted real estate consultancy helping buyers and investors navigate off-plan and secondary properties across Dubai, Abu Dhabi, and Sharjah.",
+  path: "/about-us",
+});
 
 export default function AboutUsPage() {
   return (

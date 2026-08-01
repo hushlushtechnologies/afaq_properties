@@ -7,6 +7,7 @@ import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { IconFeaturePanel } from "@/components/ui/IconFeaturePanel";
 import { DecorativePattern } from "@/components/ui/DecorativePattern";
+import { ParallaxImage } from "@/components/animation/ParallaxImage";
 import { EASE_SMOOTH } from "@/lib/motion";
 
 const CONTENT = {
@@ -14,7 +15,7 @@ const CONTENT = {
   title: "The Right Property, The Right Opportunity",
   description:
     "Every property journey is different. Whether you're looking for a place to call home or seeking the right opportunity to grow your portfolio, explore carefully selected properties across the UAE with guidance tailored to your goals.",
-  image: "/assets/office/int1.png",
+  image: "/assets/office/int1.jpg",
   left: {
     icon: Home,
     title: "Find a Place That Feels Like Yours",
@@ -78,7 +79,7 @@ export function PropertyOpportunity() {
           description={CONTENT.description}
           highlight="Right Opportunity"
           align="center"
-          className="mx-auto"
+          className="relative mx-auto"
         />
       </motion.div>
 
@@ -101,14 +102,17 @@ export function PropertyOpportunity() {
           className="order-1 sm:order-2"
         >
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-lg border border-border shadow-lg">
-            <Image
-              src={CONTENT.image}
-              alt="Afaq"
-              fill
-              priority
-              sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 90vw"
-              className="object-cover"
-            />
+            <ParallaxImage className="h-full w-full">
+              <Image
+                src={CONTENT.image}
+                alt="Afaq"
+                fill
+                priority
+                quality={90}
+                sizes="(min-width: 640px) 30vw, 90vw"
+                className="object-cover"
+              />
+            </ParallaxImage>
           </div>
         </motion.div>
 

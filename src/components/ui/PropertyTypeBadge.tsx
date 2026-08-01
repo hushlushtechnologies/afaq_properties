@@ -10,7 +10,7 @@ export function PropertyTypeBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border border-blue-600/10 bg-bgPrimary px-3 py-1 font-body text-caption font-normal text-background backdrop-blur-sm text-xs",
+        "inline-flex items-center rounded-full border border-bgBorder bg-bgPrimary px-3 py-1 font-body text-caption font-normal text-background backdrop-blur-sm text-xs",
         className,
       )}
     >

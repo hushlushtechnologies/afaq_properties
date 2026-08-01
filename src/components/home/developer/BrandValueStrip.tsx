@@ -79,7 +79,8 @@ export function BrandValueStrip() {
           alt="Dubai skyline at dusk"
           fill
           priority
-          sizes="(min-width: 1024px) 40vw, 100vw"
+          quality={90}
+          sizes="(min-width: 640px) 30vw, 90vw"
           className="object-cover"
         />
       </motion.div>

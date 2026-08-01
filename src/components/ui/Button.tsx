@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ButtonHTMLAttributes } from "react";
+import type { LucideIcon } from "lucide-react";
 
 type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
@@ -12,13 +13,17 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   href?: string;
   target?: string;
+  icon?: LucideIcon;
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-gold-radial text-background hover:bg-accent shadow-[0_6px_6px_0_rgba(255,255,255,0.40)_inset,0_6px_180px_0_#FFAE17,0_3px_0_0_rgba(0,0,0,0.07),0_-2px_0_0_rgba(0,0,0,0.20)_inset]",
+  primary:
+    "bg-gold-radial text-background hover:bg-accent shadow-[0_6px_6px_0_rgba(255,255,255,0.40)_inset,0_6px_180px_0_#FFAE17,0_3px_0_0_rgba(0,0,0,0.07),0_-2px_0_0_rgba(0,0,0,0.20)_inset]",
   secondary: "bg-gold-gradient text-background hover:bg-accent",
-  ghost: "border border-border text-text-secondary hover:bg-hero-gradient  bg-card-gradient",
-  outline: "text-text text-primary hover:border-text-secondary hover:text-text-secondary bg-transparent border border-primary",
+  ghost:
+    "border border-border text-text-secondary hover:bg-hero-gradient  bg-card-gradient",
+  outline:
+    "text-text text-primary hover:border-text-secondary hover:text-text-secondary bg-transparent border border-primary",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -32,28 +37,41 @@ export function Button({
   size = "md",
   href,
   target,
+  icon: Icon,
   className,
   children,
   ...props
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-md font-body font-semibold transition-colors duration-400 ease-smooth disabled:opacity-50 disabled:pointer-events-none",
+    "group inline-flex items-center justify-center gap-2 rounded-md font-body font-semibold transition-all duration-300 ease-smooth hover:scale-[1.015] active:scale-[0.985] disabled:opacity-50 disabled:pointer-events-none disabled:hover:scale-100",
     variantStyles[variant],
     sizeStyles[size],
-    className
+    className,
+  );
+
+  const content = (
+    <>
+      {children}
+      {Icon && (
+        <Icon
+          size={16}
+          className="shrink-0 transition-transform duration-300 ease-smooth group-hover:translate-x-0.5"
+        />
+      )}
+    </>
   );
 
   if (href) {
     return (
       <Link href={href} target={target} className={classes}>
-        {children}
+        {content}
       </Link>
     );
   }
 
   return (
     <button className={classes} {...props}>
-      {children}
+      {content}
     </button>
   );
 }

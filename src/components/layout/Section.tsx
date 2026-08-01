@@ -6,6 +6,7 @@ interface SectionProps {
   className?: string;
   containerClassName?: string;
   ornament?: boolean;
+  background?: React.ReactNode;
   id?: string;
 }
 
@@ -14,13 +15,18 @@ export function Section({
   className,
   containerClassName,
   ornament = true,
+  background,
   id,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("relative py-20 md:py-36  ", className)}>
+    <section
+      id={id}
+      className={cn("relative overflow-hidden py-20 md:py-[140px]", className)}
+    >
+      {background && <div className="absolute inset-0">{background}</div>}
       <div
         className={cn(
-          "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 ",
+          "relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8",
           containerClassName,
         )}
       >

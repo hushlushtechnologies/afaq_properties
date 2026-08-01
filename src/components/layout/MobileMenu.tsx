@@ -6,6 +6,7 @@ import { X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { NAV_LINKS, NAV_CTA } from "@/config/navigation";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/layout/Logo";
 
 interface MobileMenuProps {
   open: boolean;
@@ -28,7 +29,13 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
           className="fixed w-full  inset-0 z-[60] flex flex-col bg-card-gradient/80 backdrop-blur-xl lg:hidden"
         >
           <div className="flex items-center justify-between px-6 py-6">
-            <span className="font-heading text-h4 text-primary">AFAQ</span>
+            <Link
+              href="/"
+              onClick={onClose}
+              aria-label="Afaq Al Manzil Properties — Home"
+            >
+              <Logo />
+            </Link>
             <button
               type="button"
               aria-label="Close menu"
@@ -61,6 +68,7 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
                   }}
                 >
                   <Link
+                    key={link.href}
                     href={link.href}
                     onClick={onClose}
                     className={cn(
@@ -76,7 +84,12 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
           </motion.nav>
 
           <div className="px-6 py-6">
-            <Button href={NAV_CTA.href} size="lg" className="w-full">
+            <Button
+              href={NAV_CTA.href}
+              onClick={onClose}
+              size="lg"
+              className="w-full"
+            >
               {NAV_CTA.label}
             </Button>
           </div>

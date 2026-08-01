@@ -10,10 +10,10 @@ const config: Config = {
         surface: "var(--color-surface)",
         card: "var(--color-card)",
         elevated: "var(--color-elevated)",
-        bgPrimary: "var(--color-bgPrimary)",
+        bgPrimary: "var(--color-bgPrimary) ",
         bgBorder: "var(--color-borderPrimary)",
         primary: {
-          DEFAULT: "var(--color-primary)",
+          DEFAULT: "var(--color-primary) ",
           foreground: "var(--color-primary-foreground)",
         },
         secondary: {

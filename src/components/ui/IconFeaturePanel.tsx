@@ -29,7 +29,7 @@ export function IconFeaturePanel({
         className,
       )}
     >
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-borderPrimary bg-bgPrimary text-primary">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-bgBorder bg-bgPrimary text-primary">
         <Icon size={15} strokeWidth={1.75} />
       </span>
 
@@ -45,12 +45,15 @@ export function IconFeaturePanel({
         <Link
           href={ctaHref}
           className={cn(
-            "mt-5 inline-flex items-center gap-2 font-semibold text-sm text-primary transition-colors duration-400 hover:text-accent",
+            "group mt-5 inline-flex items-center gap-2 font-semibold text-sm text-primary transition-colors duration-300 hover:text-accent",
             align === "right" && "sm:flex-row-reverse",
           )}
         >
           {ctaLabel}
-          <ArrowRight size={15} />
+          <ArrowRight
+            size={15}
+            className="transition-transform duration-300 ease-smooth group-hover:translate-x-0.5"
+          />
         </Link>
       )}
     </div>

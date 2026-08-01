@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { lora, publicSans } from "@/lib/fonts";
 import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { getOrganizationSchema } from "@/lib/structured-data";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -8,7 +10,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Afaq Al Manzil Properties | Luxury Real Estate in Dubai, Abu Dhabi & Sharjah",
+    default:
+      "Afaq Al Manzil Properties | Luxury Real Estate in Dubai, Abu Dhabi & Sharjah",
     template: "%s | Afaq Al Manzil Properties",
   },
   description:
@@ -28,12 +31,22 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Afaq Al Manzil Properties",
     title: "Afaq Al Manzil Properties | Luxury Real Estate in the UAE",
-    description: "Premium off-plan and secondary properties across Dubai, Abu Dhabi and Sharjah.",
+    description:
+      "Premium off-plan and secondary properties across Dubai, Abu Dhabi and Sharjah.",
+    images: [
+      {
+        url: "/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Afaq Al Manzil Properties",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Afaq Al Manzil Properties",
     description: "Luxury real estate across Dubai, Abu Dhabi and Sharjah.",
+    images: ["/images/og-default.jpg"],
   },
   alternates: {
     canonical: "/",
@@ -50,12 +63,27 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={`${lora.variable} ${publicSans.variable}`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${lora.variable} ${publicSans.variable}`}
+    >
       <body className="bg-background text-text font-body antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getOrganizationSchema()),
+          }}
+        />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

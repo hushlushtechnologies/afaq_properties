@@ -31,4 +31,4 @@ export const BRAND_VALUES: BrandValue[] = [
   },
 ];
 
-export const BRAND_VALUE_IMAGE = "/assets/random/partner.png";
+export const BRAND_VALUE_IMAGE = "/assets/random/partner.jpg";

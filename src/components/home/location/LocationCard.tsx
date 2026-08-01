@@ -30,6 +30,7 @@ export function LocationCard({
         alt={`Properties in ${community.name}`}
         fill
         priority={priority}
+        quality={90}
         sizes={
           large
             ? "(min-width: 640px) 40vw, 100vw"

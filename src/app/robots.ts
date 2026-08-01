@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "www.afaqalmanzilproperties.com";
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.afaqalmanzil.com";
   return {
     rules: {
       userAgent: "*",

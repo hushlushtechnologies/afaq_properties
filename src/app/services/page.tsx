@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Services",
-  description: "Real estate services offered by Afaq Al Manzil Properties.",
-};
+  description:
+    "From residential and commercial properties to investment advisory and property management, discover the real estate services offered by Afaq Al Manzil Properties.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

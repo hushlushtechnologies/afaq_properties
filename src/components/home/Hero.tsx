@@ -6,8 +6,10 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { SOCIAL_LINKS } from "@/config/social";
-import { EASE_SMOOTH } from "@/lib/motion";
+import { EASE_SMOOTH, DURATION } from "@/lib/motion";
 import { FaWhatsapp } from "react-icons/fa";
+import { Magnetic } from "@/components/ui/Magnetic";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 const HERO_CONTENT = {
   eyebrow: "UAE Real Estate",
@@ -30,32 +32,49 @@ export function Hero() {
     visible: {
       transition: {
         staggerChildren: shouldReduceMotion ? 0 : 0.15,
-        delayChildren: shouldReduceMotion ? 0 : 0.4,
+        delayChildren: shouldReduceMotion ? 0 : 0.5,
       },
     },
   };
 
-  const item = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
+  const fadeItem = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.9, ease: EASE_SMOOTH },
+      transition: { duration: DURATION.cinematic, ease: EASE_SMOOTH },
+    },
+  };
+
+  const maskLine = {
+    hidden: { y: shouldReduceMotion ? 0 : "100%" },
+    visible: {
+      y: "0%",
+      transition: { duration: DURATION.cinematic, ease: EASE_SMOOTH },
     },
   };
 
   return (
     <section className="relative w-full overflow-hidden bg-background">
-      <video
+      <motion.video
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
         poster="/assets/random/trust.jpg"
+        initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 1.04 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: DURATION.cinematic, ease: EASE_SMOOTH }}
         className="absolute inset-0 h-full w-full object-cover"
       >
+        <source
+          src="/hero_vedio.mp4"
+          media="(max-width: 767px)"
+          type="video/mp4"
+        />
         <source src="/hero_vedio.mp4" type="video/mp4" />
-      </video>
+      </motion.video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/85" />
 
@@ -64,8 +83,8 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
-          duration: 1.4,
-          delay: shouldReduceMotion ? 0 : 0.9,
+          duration: 1.2,
+          delay: shouldReduceMotion ? 0 : 1,
           ease: EASE_SMOOTH,
         }}
         className="text-stroke pointer-events-none absolute  inset-x-0 bottom-16 select-none whitespace-nowrap text-center font-heading text-[14vw] font-semibold uppercase leading-none sm:bottom-20 sm:text-[6vw]"
@@ -80,27 +99,26 @@ export function Hero() {
           animate="visible"
           className="mx-auto max-w-3xl text-center"
         >
-          <motion.div variants={item}>
+          <motion.div variants={fadeItem}>
             <Eyebrow align="center">{HERO_CONTENT.eyebrow}</Eyebrow>
           </motion.div>
 
-          <motion.h1
-            variants={item}
-            className="mt-5 font-semibold sm:text-5xl text-3xl uppercase leading-normal tracking-widest text-white"
-          >
+          <h1 className="mt-5 font-semibold sm:text-5xl text-3xl uppercase leading-normal tracking-widest text-white">
             {HERO_CONTENT.headingLines.map((line, i) => (
-              <span key={i} className="block">
-                {line.map((word, j) => (
-                  <span
-                    key={j}
-                    className={word.highlight ? "text-primary" : undefined}
-                  >
-                    {word.text}
-                  </span>
-                ))}
+              <span key={i} className="block overflow-hidden">
+                <motion.span variants={maskLine} className="inline-block">
+                  {line.map((word, j) => (
+                    <span
+                      key={j}
+                      className={word.highlight ? "text-primary" : undefined}
+                    >
+                      {word.text}
+                    </span>
+                  ))}
+                </motion.span>
               </span>
             ))}
-          </motion.h1>
+          </h1>
         </motion.div>
 
         <motion.div
@@ -110,21 +128,23 @@ export function Hero() {
           className="relative z-10 max-w-md rounded-lg border border-border/30 bg-card/20 p-6 backdrop-blur-md sm:p-7"
         >
           <motion.p
-            variants={item}
+            variants={fadeItem}
             className="font-normal md:text-sm text-text-secondary"
           >
             {HERO_CONTENT.description}
           </motion.p>
 
-          <motion.div variants={item} className="mt-6 flex flex-wrap gap-3">
-            <Button
-              href={HERO_CONTENT.primaryCta.href}
-              variant="primary"
-              size="md"
-            >
-              {HERO_CONTENT.primaryCta.label}
-              <ArrowRight size={16} />
-            </Button>
+          <motion.div variants={fadeItem} className="mt-6 flex flex-wrap gap-3">
+            <Magnetic>
+              <Button
+                href={HERO_CONTENT.primaryCta.href}
+                variant="primary"
+                size="md"
+                icon={ArrowRight}
+              >
+                {HERO_CONTENT.primaryCta.label}
+              </Button>
+            </Magnetic>
             <Button
               href={HERO_CONTENT.secondaryCta.href}
               target="_blank"
@@ -137,6 +157,7 @@ export function Hero() {
           </motion.div>
         </motion.div>
       </Container>
+      <ScrollIndicator />
 
       <motion.div
         initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}

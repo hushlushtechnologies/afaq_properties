@@ -89,6 +89,7 @@ export function ImageFeatureShowcase({
                 alt={activeItem.imageLabel ?? activeItem.title}
                 fill
                 priority
+                quality={90}
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"
               />

@@ -63,6 +63,7 @@ export function PropertyCard({
           alt={property.name}
           fill
           priority={priority}
+          quality={90}
           sizes={
             large
               ? "(min-width: 1024px) 45vw, 100vw"

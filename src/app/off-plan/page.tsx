@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Off-Plan Properties",
-  description: "Explore off-plan property investment opportunities across the UAE.",
-};
+  description:
+    "Explore off-plan property investment opportunities from leading UAE developers across Dubai, Abu Dhabi, and Sharjah.",
+  path: "/off-plan",
+});
 
 export default function OffPlanPage() {
   return (
