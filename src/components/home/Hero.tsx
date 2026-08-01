@@ -55,7 +55,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-background">
+    <section className="relative w-full  overflow-hidden  bg-background">
       <motion.video
         aria-hidden="true"
         autoPlay
