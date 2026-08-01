@@ -57,11 +57,12 @@ export function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-background">
       <motion.video
+        aria-hidden="true"
         autoPlay
         loop
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
         poster="/assets/random/trust.jpg"
         initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 1.04 }}
         animate={{ opacity: 1, scale: 1 }}
