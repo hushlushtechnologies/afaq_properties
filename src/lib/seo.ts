@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://localhost:3000/";
 const SITE_NAME = "Afaq Al Manzil Properties";
-const DEFAULT_OG_IMAGE = "/images/og-default.jpg";
+const DEFAULT_OG_IMAGE = "/og-default.jpg";
 
 interface BuildMetadataParams {
   title: string;

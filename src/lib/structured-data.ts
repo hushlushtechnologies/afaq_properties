@@ -10,8 +10,8 @@ export function getOrganizationSchema() {
     "@type": "RealEstateAgent",
     name: "Afaq Al Manzil Properties",
     url: SITE_URL,
-    image: `${SITE_URL}/images/og-default.jpg`,
-    logo: `${SITE_URL}/images/og-default.jpg`,
+    image: `${SITE_URL}/og-default.jpg`,
+    logo: `${SITE_URL}/og-default.jpg`,
     telephone: COMPANY_CONTACT.phones[0]?.replace(/\s+/g, ""),
     email: COMPANY_CONTACT.email,
     address: {

@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 
 export const metadata = buildMetadata({
-  title: "Secondary Properties",
+  title: "Ready Properties",
   description:
     "Explore completed, ready-to-move-in secondary properties for sale across Dubai and the wider UAE.",
   path: "/secondary",

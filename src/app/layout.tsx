@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Premium off-plan and secondary properties across Dubai, Abu Dhabi and Sharjah.",
     images: [
       {
-        url: "/images/og-default.jpg",
+        url: "/og-default.jpg",
         width: 1200,
         height: 630,
         alt: "Afaq Al Manzil Properties",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Afaq Al Manzil Properties",
     description: "Luxury real estate across Dubai, Abu Dhabi and Sharjah.",
-    images: ["/images/og-default.jpg"],
+    images: ["/og-default.jpg"],
   },
   alternates: {
     canonical: "/",
