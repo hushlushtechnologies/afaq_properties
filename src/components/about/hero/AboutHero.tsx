@@ -34,7 +34,7 @@ export function AboutHero() {
     },
   };
 
-  const maskItem = {
+  const maskLine = {
     hidden: { y: shouldReduceMotion ? 0 : "100%" },
     visible: {
       y: "0%",
@@ -46,7 +46,7 @@ export function AboutHero() {
     <section className="relative flex min-h-[85vh] w-full items-center overflow-hidden bg-background">
       <Image
         src={ABOUT_HERO_CONTENT.image}
-        alt="Afaq"
+        alt=""
         fill
         priority
         quality={90}
@@ -81,25 +81,26 @@ export function AboutHero() {
             <Eyebrow align="center">{ABOUT_HERO_CONTENT.eyebrow}</Eyebrow>
           </motion.div>
 
-          <div className="mt-5 overflow-hidden">
-            <motion.h1
-              variants={maskItem}
-              className="inline-block font-heading text-3xl font-semibold sm:text-5xl leading-tight text-text"
-            >
-              {ABOUT_HERO_CONTENT.headingSegments.map((segment, i) => (
-                <span
-                  key={i}
-                  className={segment.highlight ? "text-primary" : undefined}
-                >
-                  {segment.text}
-                </span>
-              ))}
-            </motion.h1>
-          </div>
+          <h1 className="mt-5 font-heading sm:text-5xl text-3xl font-semibold leading-tight text-white">
+            {ABOUT_HERO_CONTENT.headingLines.map((line, i) => (
+              <span key={i} className="block overflow-hidden">
+                <motion.span variants={maskLine} className="inline-block">
+                  {line.map((segment, j) => (
+                    <span
+                      key={j}
+                      className={segment.highlight ? "text-primary" : undefined}
+                    >
+                      {segment.text}
+                    </span>
+                  ))}
+                </motion.span>
+              </span>
+            ))}
+          </h1>
 
           <motion.p
             variants={fadeItem}
-            className="mx-auto mt-5 max-w-2xl font-body text-sm text-text-secondary"
+            className="mx-auto mt-5 max-w-2xl font-body sm:text-body text-sm text-text-secondary"
           >
             {ABOUT_HERO_CONTENT.description}
           </motion.p>
@@ -114,7 +115,6 @@ export function AboutHero() {
                 variant="primary"
                 size="md"
                 icon={ArrowRight}
-                className="rounded"
               >
                 {ABOUT_HERO_CONTENT.primaryCta.label}
               </Button>
@@ -125,7 +125,6 @@ export function AboutHero() {
               variant="ghost"
               size="md"
               icon={MessageCircle}
-              className="rounded"
             >
               {ABOUT_HERO_CONTENT.secondaryCta.label}
             </Button>
@@ -135,7 +134,7 @@ export function AboutHero() {
             variants={container}
             initial="hidden"
             animate="visible"
-            className="mx-auto mt-12 flex-wrap grid max-w-md grid-cols-3 gap-2 sm:gap-6"
+            className="mx-auto mt-12 grid max-w-md grid-cols-3 gap-2 px-2 sm:gap-6 sm:px-0"
           >
             {ABOUT_STATS.map((stat) => (
               <motion.div
@@ -146,9 +145,9 @@ export function AboutHero() {
                 <AnimatedCounter
                   value={stat.value}
                   suffix={stat.suffix}
-                  className="font-heading text-h3 font-semibold text-primary"
+                  className="font-heading text-h4 text-primary sm:text-h3"
                 />
-                <p className="mt-1 font-body text-xs text-text-secondary">
+                <p className="mt-1 font-body text-caption text-white/70 sm:text-body-sm">
                   {stat.label}
                 </p>
               </motion.div>

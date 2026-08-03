@@ -31,7 +31,7 @@ export const OUR_EXPERTISE_ITEMS: ExpertiseItem[] = [
     description:
       "Discover completed and move-in ready properties across established UAE communities, offering immediate ownership opportunities for homeowners and investors.",
     image: "/assets/random/commercial.jpg",
-    href: "/secondary",
+    href: "/ready",
   },
   {
     id: "residential",
@@ -47,6 +47,6 @@ export const OUR_EXPERTISE_ITEMS: ExpertiseItem[] = [
     description:
       "Navigate the UAE property market with a strategic approach focused on opportunities that align with your investment goals, rental potential, and long-term value.",
     image: "/assets/random/investment.jpg",
-    href: "/services#real-estate-investments",
+    href: "/services",
   },
 ];

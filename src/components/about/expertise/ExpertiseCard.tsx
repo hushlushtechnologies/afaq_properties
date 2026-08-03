@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ExpertiseItem } from "@/data/about/expertise";
@@ -18,6 +18,8 @@ export function ExpertiseCard({
   priority,
   className,
 }: ExpertiseCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <Link
       href={item.href}
@@ -34,8 +36,14 @@ export function ExpertiseCard({
           className="absolute inset-0"
         >
           <motion.div
-            variants={{ rest: { scale: 1 }, hover: { scale: 1.08 } }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            variants={{
+              rest: { scale: 1 },
+              hover: { scale: shouldReduceMotion ? 1 : 1.08 },
+            }}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.7,
+              ease: [0.16, 1, 0.3, 1],
+            }}
             className="absolute inset-0"
           >
             <Image

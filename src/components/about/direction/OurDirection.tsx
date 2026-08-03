@@ -55,6 +55,7 @@ export function OurDirection() {
                 src={OUR_DIRECTION_ITEMS.vision.image}
                 alt="Afaq Al Manzil Properties' vision of a trusted future for UAE real estate"
                 fill
+                priority
                 quality={90}
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"
@@ -97,6 +98,7 @@ export function OurDirection() {
                 src={OUR_DIRECTION_ITEMS.mission.image}
                 alt="Afaq Al Manzil Properties' mission of providing client trust and satisfaction"
                 fill
+                priority
                 quality={90}
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"

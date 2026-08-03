@@ -60,6 +60,7 @@ export function AboutStory() {
               src={ABOUT_STORY_CONTENT.imageTop}
               alt="Modern living room interior at Afaq Al Manzil"
               fill
+              priority
               quality={90}
               sizes="(min-width: 1024px) 26vw, 100vw"
               className="object-cover"
@@ -135,6 +136,7 @@ export function AboutStory() {
               src={ABOUT_STORY_CONTENT.imageBottom}
               alt="Modern office interior at Afaq Al Manzil"
               fill
+              priority
               quality={90}
               sizes="(min-width: 1024px) 26vw, 100vw"
               className="object-cover"

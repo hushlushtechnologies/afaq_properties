@@ -1,6 +1,6 @@
 import type { JourneyStep } from "@/types/journey";
 
-export const PROPERTY_JOURNEY_IMAGE = "/assets/random/property-journey.jpg";
+export const PROPERTY_JOURNEY_IMAGE = "/assets/bgAssets/property-journey.jpg";
 
 export const PROPERTY_JOURNEY_STEPS: JourneyStep[] = [
   {

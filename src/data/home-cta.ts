@@ -1,5 +1,5 @@
 export const HOME_CTA_CONTENT = {
-  image: "/assets/random/final-cta.jpg",
+  image: "/assets/bgAssets/final-cta.jpg",
   eyebrow: "Let's Find Your Next Opportunity",
   title: "Your Next Property Starts Here.",
   highlight: "Property Starts Here.",

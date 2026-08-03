@@ -10,6 +10,7 @@ interface IconFeaturePanelProps {
   ctaLabel?: string;
   ctaHref?: string;
   align?: "left" | "right";
+  variant?: "default" | "inverted";
   className?: string;
 }
 
@@ -21,8 +22,11 @@ export function IconFeaturePanel({
   ctaLabel,
   ctaHref,
   align = "left",
+  variant = "default",
   className,
 }: IconFeaturePanelProps) {
+  const inverted = variant === "inverted";
+
   return (
     <div
       className={cn(
@@ -31,21 +35,43 @@ export function IconFeaturePanel({
         className,
       )}
     >
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-bgBorder bg-bgPrimary text-primary">
+      <span
+        className={cn(
+          "flex h-12 w-12 shrink-0 items-center justify-center rounded-full border",
+          inverted
+            ? "border-background bg-none text-background"
+            : "border-bgBorder bg-bgPrimary text-primary",
+        )}
+      >
         <Icon size={15} strokeWidth={1.75} />
       </span>
 
       {label && (
-        <span className="mt-4 font-body text-caption font-medium uppercase tracking-widest text-primary">
+        <span
+          className={cn(
+            "mt-4 font-body text-caption font-medium uppercase tracking-widest",
+            inverted ? "text-black" : "text-primary",
+          )}
+        >
           {label}
         </span>
       )}
 
-      <h3 className="mt-5 font-semibold md:text-2xl text-xl text-text">
+      <h3
+        className={cn(
+          "mt-5 font-semibold md:text-xl text-lg ",
+          inverted ? "text-background" : "text-text",
+        )}
+      >
         {title}
       </h3>
 
-      <p className="mt-3 max-w-xs font-medium md:text-base text-sm text-text-secondary">
+      <p
+        className={cn(
+          "mt-3 max-w-xs font-medium md:text-sm text-xs ",
+          inverted ? "text-background" : "text-text-secondary",
+        )}
+      >
         {description}
       </p>
 
@@ -53,7 +79,10 @@ export function IconFeaturePanel({
         <Link
           href={ctaHref}
           className={cn(
-            "group mt-5 inline-flex items-center gap-2 font-semibold text-sm text-primary transition-colors duration-300 hover:text-accent",
+            "group mt-5 inline-flex items-center gap-2 font-semibold text-sm  transition-colors duration-300 ",
+            inverted
+              ? "text-primary-foreground hover:text-primary-foreground/70"
+              : "text-primary hover:text-accent",
             align === "right" && "sm:flex-row-reverse",
           )}
         >

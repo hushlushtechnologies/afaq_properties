@@ -2,7 +2,16 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { StepBadge } from "@/components/ui/StepBadge";
-import { ClipboardList, Compass, Handshake, Key } from "lucide-react";
+import {
+  ClipboardList,
+  Compass,
+  Handshake,
+  Key,
+  MessageSquare,
+  Search,
+  FileCheck,
+  Users,
+} from "lucide-react";
 import { EASE_SMOOTH } from "@/lib/motion";
 import type { JourneyStep } from "@/types/journey";
 
@@ -15,6 +24,10 @@ const iconMap = {
   Compass,
   Handshake,
   Key,
+  MessageSquare,
+  Search,
+  FileCheck,
+  Users,
 } as const;
 
 export function JourneyTimeline({ steps }: JourneyTimelineProps) {
@@ -72,7 +85,7 @@ export function JourneyTimeline({ steps }: JourneyTimelineProps) {
         className="absolute left-0 right-0 top-[7px] hidden h-[2px] origin-left bg-bgPrimary lg:block"
       />
 
-      <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 sm:gap-8 lg:gap-6">
+      <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3  sm:gap-8 lg:gap-6">
         {steps.map((step, index) => {
           const Icon = iconMap[step.icon];
           return (
@@ -94,7 +107,7 @@ export function JourneyTimeline({ steps }: JourneyTimelineProps) {
 
               <motion.div variants={contentItem} className="mt-4 ">
                 <StepBadge step={index + 1} />
-                <h3 className="mt-2 font-heading font-semibold text-h4 text-text">
+                <h3 className="mt-2 font-heading font-semibold sm:text-xl text-lg text-text">
                   {step.title}
                 </h3>
                 <p className="mt-2 max-w-sm font-body text-body-sm text-text-secondary lg:max-w-xs">

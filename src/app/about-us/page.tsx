@@ -4,6 +4,14 @@ import { AboutStory } from "@/components/about/story/AboutStory";
 import { OurDirection } from "@/components/about/direction/OurDirection";
 import { WhatWeStandFor } from "@/components/about/whatWeStand/WhatWeStandFor";
 import { OurExpertise } from "@/components/about/expertise/OurExpertise";
+import { WhyTrustUs } from "@/components/about/trust/WhyTrustUs";
+import { OUR_APPROACH_IMAGE, OUR_APPROACH_STEPS } from "@/data/about/approach";
+import { PropertyJourney } from "@/components/home/journey/PropertyJourney";
+import { Section } from "@/components/layout/Section";
+import { DeveloperNetwork } from "@/components/home/developer/DeveloperNetwork";
+import { TeamGrid } from "@/components/home/team/TeamGrid";
+import { FinalCTA } from "@/components/home/cta/FinalCTA";
+import { ABOUT_CTA_CONTENT } from "@/data/about/about-cta";
 
 export const metadata = buildMetadata({
   title: "About Us",
@@ -20,6 +28,13 @@ export default function AboutUsPage() {
       <OurDirection />
       <WhatWeStandFor />
       <OurExpertise />
+      <WhyTrustUs />
+      <PropertyJourney image={OUR_APPROACH_IMAGE} steps={OUR_APPROACH_STEPS} />
+      <Section className="bg-hero-gradient">
+        <DeveloperNetwork />
+      </Section>
+      <TeamGrid />
+      <FinalCTA {...ABOUT_CTA_CONTENT} />
     </main>
   );
 }

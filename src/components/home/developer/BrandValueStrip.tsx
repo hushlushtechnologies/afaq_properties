@@ -89,6 +89,7 @@ export function BrandValueStrip({
           src={image}
           alt={imageAlt}
           fill
+          priority
           quality={90}
           sizes="(min-width: 640px) 30vw, 90vw"
           className="object-cover"
