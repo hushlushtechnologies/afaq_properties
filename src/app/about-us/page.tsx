@@ -1,5 +1,9 @@
 import { buildMetadata } from "@/lib/seo";
-import { Container } from "@/components/ui/Container";
+import { AboutHero } from "@/components/about/hero/AboutHero";
+import { AboutStory } from "@/components/about/story/AboutStory";
+import { OurDirection } from "@/components/about/direction/OurDirection";
+import { WhatWeStandFor } from "@/components/about/whatWeStand/WhatWeStandFor";
+import { OurExpertise } from "@/components/about/expertise/OurExpertise";
 
 export const metadata = buildMetadata({
   title: "About Us",
@@ -10,13 +14,12 @@ export const metadata = buildMetadata({
 
 export default function AboutUsPage() {
   return (
-    <main className="min-h-screen pt-40 pb-24">
-      <Container>
-        <h1 className="font-heading text-h1 text-text">About Us</h1>
-        <p className="mt-4 max-w-2xl font-body text-body-lg text-text-secondary">
-          Placeholder content — this page will be built in a future sprint.
-        </p>
-      </Container>
+    <main>
+      <AboutHero />
+      <AboutStory />
+      <OurDirection />
+      <WhatWeStandFor />
+      <OurExpertise />
     </main>
   );
 }

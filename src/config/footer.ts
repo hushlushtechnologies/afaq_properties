@@ -7,7 +7,7 @@ export const FOOTER_EXPLORE_LINKS: FooterLink[] = [
   { label: "Properties", href: "/properties" },
   { label: "Off-Plan", href: "/off-plan" },
   { label: "Ready", href: "/ready" },
-  { label: "Rental", href: "/rental" },
+  { label: "Rental", href: "/rental " },
   { label: "Location", href: "/#locations" },
   { label: "FAQ", href: "/#faq" },
 ];

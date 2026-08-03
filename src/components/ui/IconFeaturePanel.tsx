@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 
 interface IconFeaturePanelProps {
   icon: LucideIcon;
+  label?: string;
   title: string;
   description: string;
   ctaLabel?: string;
@@ -14,6 +15,7 @@ interface IconFeaturePanelProps {
 
 export function IconFeaturePanel({
   icon: Icon,
+  label,
   title,
   description,
   ctaLabel,
@@ -32,6 +34,12 @@ export function IconFeaturePanel({
       <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-bgBorder bg-bgPrimary text-primary">
         <Icon size={15} strokeWidth={1.75} />
       </span>
+
+      {label && (
+        <span className="mt-4 font-body text-caption font-medium uppercase tracking-widest text-primary">
+          {label}
+        </span>
+      )}
 
       <h3 className="mt-5 font-semibold md:text-2xl text-xl text-text">
         {title}

@@ -20,7 +20,10 @@ const HERO_CONTENT = {
   description:
     "Discover curated off-plan and secondary properties across the UAE, guided by a team that understands your needs.",
   primaryCta: { label: "Explore Properties", href: "/properties" },
-  secondaryCta: { label: "WhatsApp Us", href: "https://wa.me/971545813201" },
+  secondaryCta: {
+    label: "WhatsApp Us",
+    href: "https://wa.me/971545813201?text=Hi%20AFAQ%20Al%20Manzil%20Properties,%20I%20have%20an%20enquiry.",
+  },
   brandText: "AFAQ AL MANZIL PROPERTIES",
 };
 
@@ -104,7 +107,7 @@ export function Hero() {
             <Eyebrow align="center">{HERO_CONTENT.eyebrow}</Eyebrow>
           </motion.div>
 
-          <h1 className="mt-5 font-semibold sm:text-5xl text-3xl uppercase leading-normal tracking-widest text-white">
+          <h1 className="mt-5 font-semibold sm:text-5xl text-3xl uppercase leading-normal tracking-widest text-text">
             {HERO_CONTENT.headingLines.map((line, i) => (
               <span key={i} className="block overflow-hidden">
                 <motion.span variants={maskLine} className="inline-block">
@@ -130,7 +133,7 @@ export function Hero() {
         >
           <motion.p
             variants={fadeItem}
-            className="font-normal md:text-sm text-text-secondary"
+            className="font-normal text-sm text-text-secondary"
           >
             {HERO_CONTENT.description}
           </motion.p>

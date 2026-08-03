@@ -8,5 +8,6 @@ export const HOME_CTA_CONTENT = {
   primaryAction: "Explore Properties",
   primaryHref: "/properties",
   secondaryAction: "WhatsApp Us",
-  secondaryHref: "https://wa.me/971500000000",
+  secondaryHref:
+    "https://wa.me/971545813201?text=Hi%20AFAQ%20Al%20Manzil%20Properties,%20I%20have%20an%20enquiry.",
 };

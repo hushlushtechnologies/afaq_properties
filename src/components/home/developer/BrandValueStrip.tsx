@@ -4,8 +4,19 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { BRAND_VALUES, BRAND_VALUE_IMAGE } from "@/data/brand-values";
 import { EASE_SMOOTH } from "@/lib/motion";
+import type { BrandValue } from "@/types/brand-value";
 
-export function BrandValueStrip() {
+interface BrandValueStripProps {
+  values?: BrandValue[];
+  image?: string;
+  imageAlt?: string;
+}
+
+export function BrandValueStrip({
+  values = BRAND_VALUES,
+  image = BRAND_VALUE_IMAGE,
+  imageAlt = "Dubai skyline at dusk",
+}: BrandValueStripProps) {
   const shouldReduceMotion = useReducedMotion();
 
   const container = {
@@ -30,15 +41,15 @@ export function BrandValueStrip() {
   };
 
   return (
-    <div className="mt-20 grid grid-cols-1 gap-10  lg:grid-cols-[2.4fr_1fr] lg:gap-14 ">
+    <div className="mt-20 grid grid-cols-1 gap-10 lg:grid-cols-[2.4fr_1fr] lg:gap-14">
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
-        className="flex flex-col divide-y divide-border "
+        className="flex flex-col divide-y divide-border"
       >
-        {BRAND_VALUES.map((value) => {
+        {values.map((value) => {
           const parts = value.highlight
             ? value.title.split(value.highlight)
             : [value.title];
@@ -75,10 +86,9 @@ export function BrandValueStrip() {
         className="relative h-72 md:w-80 w-full overflow-hidden rounded-md border border-border lg:h-auto"
       >
         <Image
-          src={BRAND_VALUE_IMAGE}
-          alt="Dubai skyline at dusk"
+          src={image}
+          alt={imageAlt}
           fill
-          priority
           quality={90}
           sizes="(min-width: 640px) 30vw, 90vw"
           className="object-cover"

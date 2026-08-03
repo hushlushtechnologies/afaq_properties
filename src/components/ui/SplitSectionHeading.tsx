@@ -14,7 +14,7 @@ interface SplitSectionHeadingProps {
   eyebrow: string;
   title: string;
   highlight?: string;
-  description: string;
+  description?: string;
   ctaLabel?: string;
   ctaHref?: string;
   className?: string;
@@ -31,6 +31,7 @@ export function SplitSectionHeading({
 }: SplitSectionHeadingProps) {
   const shouldReduceMotion = useReducedMotion();
   const parts = highlight ? title.split(highlight) : [title];
+  const hasRightColumn = Boolean(description || (ctaLabel && ctaHref));
 
   const container = {
     hidden: {},
@@ -86,27 +87,31 @@ export function SplitSectionHeading({
         </div>
       </div>
 
-      <motion.div
-        variants={fadeItem}
-        className=" lg:text-right w-full flex flex-col md:items-end items-start mt-10"
-      >
-        <p className="font-medium md:text-sm text-xs text-text-secondary max-w-sm">
-          {description}
-        </p>
-        {ctaLabel && ctaHref && (
-          <Magnetic>
-            <Button
-              href={ctaHref}
-              variant="primary"
-              size="sm"
-              icon={ArrowRight}
-              className="mt-4 "
-            >
-              {ctaLabel}
-            </Button>
-          </Magnetic>
-        )}
-      </motion.div>
+      {hasRightColumn && (
+        <motion.div
+          variants={fadeItem}
+          className=" lg:text-right w-full flex flex-col md:items-end items-start mt-10"
+        >
+          {description && (
+            <p className="font-medium md:text-sm text-xs text-text-secondary max-w-sm">
+              {description}
+            </p>
+          )}
+          {ctaLabel && ctaHref && (
+            <Magnetic>
+              <Button
+                href={ctaHref}
+                variant="primary"
+                size="sm"
+                icon={ArrowRight}
+                className="mt-4 "
+              >
+                {ctaLabel}
+              </Button>
+            </Magnetic>
+          )}
+        </motion.div>
+      )}
     </motion.div>
   );
 }
