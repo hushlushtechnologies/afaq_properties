@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ServiceCard } from "@/components/home/service/ServiceCard";
-import { SERVICES } from "@/data/service";
+import { SERVICES } from "@/data/hero/service";
 import { EASE_SMOOTH } from "@/lib/motion";
 
 interface ServiceGridProps {
@@ -32,7 +32,7 @@ export function ServiceGrid({ limit }: ServiceGridProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
-      className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+      className="mt-20 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
     >
       {services.map((service, index) => (
         <motion.div key={service.id} variants={item}>

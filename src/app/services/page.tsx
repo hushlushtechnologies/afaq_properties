@@ -1,5 +1,15 @@
 import { buildMetadata } from "@/lib/seo";
-import { Container } from "@/components/ui/Container";
+import { ServicesHero } from "@/components/service/hero/ServicesHero";
+import { Services } from "@/components/service/service/services";
+import { PropertyOpportunity } from "@/components/home/propertyJourney/PropertyOpportunity";
+import { WhyAfaq } from "@/components/home/whyAfaq/WhyAfaq";
+import { PropertyJourney } from "@/components/home/journey/PropertyJourney";
+import {
+  OUR_APPROACH_IMAGE,
+  OUR_APPROACH_STEPS,
+} from "@/data/service/approach";
+import { FinalCTA } from "@/components/home/cta/FinalCTA";
+import { SERVICE_CTA_CONTENT } from "@/data/service/service-cta";
 
 export const metadata = buildMetadata({
   title: "Services",
@@ -10,13 +20,13 @@ export const metadata = buildMetadata({
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen pt-40 pb-24">
-      <Container>
-        <h1 className="font-heading text-h1 text-text">Services</h1>
-        <p className="mt-4 max-w-2xl font-body text-body-lg text-text-secondary">
-          Placeholder content — this page will be built in Phase 11.
-        </p>
-      </Container>
+    <main>
+      <ServicesHero />
+      <Services />
+      <PropertyOpportunity />
+      <WhyAfaq />
+      <PropertyJourney image={OUR_APPROACH_IMAGE} steps={OUR_APPROACH_STEPS} />
+      <FinalCTA {...SERVICE_CTA_CONTENT} />
     </main>
   );
 }

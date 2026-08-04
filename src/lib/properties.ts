@@ -1,6 +1,6 @@
-import propertiesData from "@/data/properties.json";
-import emiratesData from "@/data/emirates.json";
-import communitiesData from "@/data/community.json";
+import propertiesData from "@/data/hero/properties.json";
+import emiratesData from "@/data/hero/emirates.json";
+import communitiesData from "@/data/hero/community.json";
 import {
   AvailableUnit,
   Property,
@@ -59,6 +59,7 @@ const CATEGORY_LABELS: Record<PropertyCategory, string> = {
   villa: "Villas",
   penthouse: "Penthouses",
   townhouse: "Townhouses",
+  duplex: "Duplexes",
 };
 
 export function getCategoryLabel(category: PropertyCategory): string {
@@ -67,7 +68,7 @@ export function getCategoryLabel(category: PropertyCategory): string {
 
 const STATUS_LABELS: Record<PropertyStatus, string> = {
   "off-plan": "Off Plan",
-  completed: "Secondary",
+  completed: "Ready Properties",
   rental: "Rental",
 };
 

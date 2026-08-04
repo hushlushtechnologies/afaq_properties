@@ -7,7 +7,7 @@ import { Section } from "@/components/layout/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { ABOUT_STATS } from "@/data/about-stats";
+import { ABOUT_STATS } from "@/data/hero/about-stats";
 import { EASE_SMOOTH } from "@/lib/motion";
 import { ParallaxImage } from "@/components/animation/ParallaxImage";
 import { Magnetic } from "@/components/ui/Magnetic";

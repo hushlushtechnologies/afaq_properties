@@ -1,5 +1,5 @@
 import { ImageFeatureShowcase } from "@/components/home/whyAfaq/ImageFeatureShowcase";
-import { WHY_AFAQ_CONTENT, WHY_AFAQ_ITEMS } from "@/data/why-afaq";
+import { WHY_AFAQ_CONTENT, WHY_AFAQ_ITEMS } from "@/data/hero/why-afaq";
 
 export function WhyAfaq() {
   return (

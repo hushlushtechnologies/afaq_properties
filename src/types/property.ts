@@ -3,7 +3,8 @@ export type PropertyCategory =
   | "apartment"
   | "villa"
   | "penthouse"
-  | "townhouse";
+  | "townhouse"
+  | "duplex";
 export type Emirate =
   | "dubai"
   | "abu-dhabi"

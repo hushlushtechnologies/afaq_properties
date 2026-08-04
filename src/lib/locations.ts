@@ -1,4 +1,4 @@
-import communitiesData from "@/data/community.json";
+import communitiesData from "@/data/hero/community.json";
 import { Emirate } from "@/types/property";
 import { Community } from "@/types/community";
 

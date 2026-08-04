@@ -63,15 +63,15 @@ export function Navbar() {
         <Container
           className={cn(
             "transition-all duration-500",
-            scrolled ? "max-w-6xl" : "max-w-7xl",
+            scrolled ? "max-w-5xl" : "max-w-7xl",
           )}
         >
           <div
             className={cn(
-              "flex items-center    justify-between rounded-lg border px-6 py-2.5 backdrop-blur-xl transition-all duration-400 ease-smooth md:px-20",
+              "flex items-center    justify-between rounded-lg border px-6 py-2.5 backdrop-blur-xl transition-all duration-400 ease-smooth ",
               scrolled
-                ? " bg-card-gradient/60 border-blue-500/15 shadow md:px-10"
-                : " bg-card-gradient border-border  shadow-sm md:px-20",
+                ? " bg-card-gradient/60 border-blue-500/15 shadow md:px-8"
+                : " bg-card-gradient border-border  shadow-sm md:px-10",
             )}
           >
             <motion.div variants={item}>
@@ -82,7 +82,7 @@ export function Navbar() {
 
             <motion.nav
               variants={item}
-              className="hidden items-center gap-7 lg:flex"
+              className="hidden items-center gap-6 lg:flex"
               aria-label="Primary"
             >
               {NAV_LINKS.map((link) => {

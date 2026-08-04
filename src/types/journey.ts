@@ -6,7 +6,9 @@ export type JourneyIcon =
   | "MessageSquare"
   | "Search"
   | "FileCheck"
-  | "Users";
+  | "Users"
+  | "FileText"
+  | "Sparkles";
 
 export interface JourneyStep {
   id: string;

@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { ABOUT_STATS } from "@/data/about-stats";
+import { ABOUT_STATS } from "@/data/hero/about-stats";
 import { ABOUT_HERO_CONTENT } from "@/data/about/about-hero";
 import { EASE_SMOOTH, DURATION } from "@/lib/motion";
 import { Magnetic } from "@/components/ui/Magnetic";
@@ -81,7 +81,7 @@ export function AboutHero() {
             <Eyebrow align="center">{ABOUT_HERO_CONTENT.eyebrow}</Eyebrow>
           </motion.div>
 
-          <h1 className="mt-5 font-heading sm:text-5xl text-3xl font-semibold leading-tight text-white">
+          <h1 className="mt-5 font-heading sm:text-5xl text-3xl font-semibold leading-tight text-text">
             {ABOUT_HERO_CONTENT.headingLines.map((line, i) => (
               <span key={i} className="block overflow-hidden">
                 <motion.span variants={maskLine} className="inline-block">

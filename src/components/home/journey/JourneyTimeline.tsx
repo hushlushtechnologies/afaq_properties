@@ -11,6 +11,8 @@ import {
   Search,
   FileCheck,
   Users,
+  FileText,
+  Sparkles,
 } from "lucide-react";
 import { EASE_SMOOTH } from "@/lib/motion";
 import type { JourneyStep } from "@/types/journey";
@@ -28,6 +30,8 @@ const iconMap = {
   Search,
   FileCheck,
   Users,
+  FileText,
+  Sparkles,
 } as const;
 
 export function JourneyTimeline({ steps }: JourneyTimelineProps) {
@@ -68,7 +72,7 @@ export function JourneyTimeline({ steps }: JourneyTimelineProps) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: EASE_SMOOTH },
+      transition: { duration: 0.2, ease: EASE_SMOOTH },
     },
   };
 
@@ -85,7 +89,7 @@ export function JourneyTimeline({ steps }: JourneyTimelineProps) {
         className="absolute left-0 right-0 top-[7px] hidden h-[2px] origin-left bg-bgPrimary lg:block"
       />
 
-      <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3  sm:gap-8 lg:gap-6">
+      <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4  sm:gap-8 lg:gap-4">
         {steps.map((step, index) => {
           const Icon = iconMap[step.icon];
           return (

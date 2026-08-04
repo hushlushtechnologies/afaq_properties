@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { BRAND_VALUES, BRAND_VALUE_IMAGE } from "@/data/brand-values";
+import { BRAND_VALUES, BRAND_VALUE_IMAGE } from "@/data/hero/brand-values";
 import { EASE_SMOOTH } from "@/lib/motion";
 import type { BrandValue } from "@/types/brand-value";
 

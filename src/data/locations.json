@@ -1,7 +1,0 @@
-[
-  { "slug": "dubai", "name": "Dubai", "image": "/images/locations/dubai.jpg", "featured": true },
-  { "slug": "abu-dhabi", "name": "Abu Dhabi", "image": "/images/locations/abu-dhabi.jpg" },
-  { "slug": "sharjah", "name": "Sharjah", "image": "/images/locations/sharjah.jpg" },
-  { "slug": "ras-al-khaimah", "name": "Ras Al Khaimah", "image": "/images/locations/ras-al-khaimah.jpg" },
-  { "slug": "ajman", "name": "Ajman", "image": "/images/locations/ajman.jpg" }
-]

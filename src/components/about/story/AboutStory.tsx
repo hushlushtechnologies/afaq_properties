@@ -46,7 +46,7 @@ export function AboutStory() {
   };
 
   return (
-    <Section>
+    <Section className="bg-hero-gradient">
       <div className="grid grid-cols-1  lg:h-[999px] items-center gap-10 lg:grid-cols-[0.85fr_1.3fr_0.85fr]  lg:gap-8">
         <motion.div
           initial="hidden"

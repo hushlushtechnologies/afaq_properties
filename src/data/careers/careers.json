@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "title": "Senior Real Estate Consultant",
+    "slug": "senior-real-estate-consultant",
+    "publishStatus": "published",
+    "displayOrder": 1,
+    "department": "Sales",
+    "employmentType": "full-time",
+    "experienceRequired": "3+ years",
+    "location": "Dubai, UAE",
+    "description": "We're looking for an experienced real estate consultant to guide clients through off-plan and secondary property investments across the UAE.",
+    "applyEmail": "careers@afaqalmanzilproperties.com",
+    "publishedDate": "2026-06-01",
+    "seo": {
+      "title": "Senior Real Estate Consultant | Careers at Afaq Al Manzil",
+      "description": "Join Afaq Al Manzil Properties as a Senior Real Estate Consultant in Dubai, UAE."
+    }
+  },
+  {
+    "id": "2",
+    "title": "Property Marketing Executive",
+    "slug": "property-marketing-executive",
+    "publishStatus": "published",
+    "displayOrder": 2,
+    "department": "Marketing",
+    "employmentType": "full-time",
+    "experienceRequired": "2+ years",
+    "location": "Dubai, UAE",
+    "description": "Join our marketing team to create compelling campaigns for premium UAE property listings.",
+    "applyEmail": "careers@afaqalmanzilproperties.com",
+    "publishedDate": "2026-06-05",
+    "seo": {
+      "title": "Property Marketing Executive | Careers at Afaq Al Manzil",
+      "description": "Join Afaq Al Manzil Properties as a Property Marketing Executive in Dubai, UAE."
+    }
+  },
+  {
+    "id": "3",
+    "title": "Property Management Coordinator",
+    "slug": "property-management-coordinator",
+    "publishStatus": "published",
+    "displayOrder": 3,
+    "department": "Property Management",
+    "employmentType": "full-time",
+    "experienceRequired": "1+ years",
+    "location": "Dubai, UAE",
+    "description": "Support our property management team in coordinating maintenance, tenant relations, and lease administration for a growing portfolio.",
+    "applyEmail": "careers@afaqalmanzilproperties.com",
+    "publishedDate": "2026-06-10",
+    "seo": {
+      "title": "Property Management Coordinator | Careers at Afaq Al Manzil",
+      "description": "Join Afaq Al Manzil Properties as a Property Management Coordinator in Dubai, UAE."
+    }
+  }
+]

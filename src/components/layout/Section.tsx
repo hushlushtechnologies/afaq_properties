@@ -21,7 +21,11 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("relative overflow-hidden py-20 md:py-[140px]", className)}
+      className={cn(
+        "relative overflow-hidden py-20 md:py-[140px]",
+        id && "scroll-mt-24 sm:scroll-mt-28",
+        className,
+      )}
     >
       {background && <div className="absolute inset-0">{background}</div>}
       <div

@@ -48,9 +48,9 @@ const FinalCTA = dynamic(() =>
 import {
   PROPERTY_JOURNEY_IMAGE,
   PROPERTY_JOURNEY_STEPS,
-} from "@/data/property-journey";
+} from "@/data/hero/property-journey";
 
-import { HOME_CTA_CONTENT } from "@/data/home-cta";
+import { HOME_CTA_CONTENT } from "@/data/hero/home-cta";
 
 export default function Home() {
   return (

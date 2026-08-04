@@ -5,7 +5,7 @@ import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TeamCard } from "@/components/home/team/TeamCard";
 import { EASE_SMOOTH } from "@/lib/motion";
-import teamData from "@/data/team.json";
+import teamData from "@/data/hero/team.json";
 import type { TeamMember } from "@/types/teams";
 
 export function TeamGrid() {

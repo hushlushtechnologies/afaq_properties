@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { DeveloperMarquee } from "@/components/home/developer/DeveloperMarquee";
 import { EASE_SMOOTH } from "@/lib/motion";
-import developersData from "@/data/developers.json";
+import developersData from "@/data/hero/developers.json";
 import type { Developer } from "@/types/developer";
 
 export function DeveloperNetwork() {
