@@ -106,3 +106,26 @@ button {
     transform: translateX(-50%);
   }
 }
+
+.range-thumb::-webkit-slider-thumb {
+  pointer-events: auto;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  border: 2px solid var(--color-background);
+  cursor: pointer;
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.range-thumb::-moz-range-thumb {
+  pointer-events: auto;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  border: 2px solid var(--color-background);
+  cursor: pointer;
+  box-shadow: 0 0 0 1px var(--color-primary);
+}

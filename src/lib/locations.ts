@@ -17,3 +17,8 @@ export function getFeaturedCommunities(
     .filter((c) => c.emirate === emirate && c.featured)
     .slice(0, limit);
 }
+
+export function getCommunitiesForEmirate(emirate: Emirate): Community[] {
+  const communities = communitiesData as Community[];
+  return communities.filter((c) => c.emirate === emirate);
+}

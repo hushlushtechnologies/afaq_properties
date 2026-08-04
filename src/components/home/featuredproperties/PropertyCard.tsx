@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, BedDouble, Ruler } from "lucide-react";
+import { MapPin, BedDouble, Ruler, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { PropertyTypeBadge } from "@/components/ui/PropertyTypeBadge";
@@ -21,11 +22,8 @@ interface PropertyCardProps {
   className?: string;
   large?: boolean;
   priority?: boolean;
-  /**
-   * "featured" -> uses property.featuredImage (homepage Featured Properties section only)
-   * "listing"  -> uses property.propertyImage (Off-Plan / Secondary / Properties page cards)
-   */
   imageVariant?: "featured" | "listing";
+  showFeaturedBadge?: boolean;
 }
 
 export function PropertyCard({
@@ -34,7 +32,9 @@ export function PropertyCard({
   large,
   priority,
   imageVariant = "listing",
+  showFeaturedBadge = false,
 }: PropertyCardProps) {
+  const [isOpen, setIsOpen] = useState(false);
   const imageSrc =
     imageVariant === "featured"
       ? property.featuredImage
@@ -45,11 +45,16 @@ export function PropertyCard({
 
   return (
     <motion.div
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+      onFocus={() => setIsOpen(true)}
+      onBlur={() => setIsOpen(false)}
+      onClick={() => setIsOpen((prev) => !prev)}
+      animate={isOpen ? "hover" : "rest"}
       initial="rest"
       whileHover="hover"
-      animate="rest"
       className={cn(
-        "group relative overflow-hidden rounded-2xl border border-border",
+        "group relative overflow-hidden rounded-md border border-border",
         className,
       )}
     >
@@ -73,7 +78,7 @@ export function PropertyCard({
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-[#000614] via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-black/40" />
 
       <div className="absolute left-3 top-3 z-20 flex flex-wrap gap-2">
         <PropertyTypeBadge>{getStatusLabel(property.status)}</PropertyTypeBadge>
@@ -82,17 +87,23 @@ export function PropertyCard({
         </PropertyTypeBadge>
       </div>
 
+      {showFeaturedBadge && property.featured && (
+        <span className="absolute right-3 top-3 z-20 flex h-7 w-7 items-center justify-center rounded-full border border-primary bg-bgPrimary text-primary">
+          <Star size={13} fill="currentColor" />
+        </span>
+      )}
+
       <div className="absolute inset-x-0 bottom-0 z-20 p-4">
         <h3
           className={cn(
-            " font-medium text-white",
-            large ? "text-2xl" : "text-lg",
+            "font-heading  text-text font-semibold",
+            large ? "text-h4" : "text-body-lg",
           )}
         >
           {property.name}
         </h3>
-        <p className="mt-1 font-body text-caption text-muted">From</p>
-        <p className="font-heading text-xl text-primary">
+        <p className="mt-1 font-body text-xs text-subtle">From</p>
+        <p className="font-heading text-h4 text-primary font-medium">
           {formatPrice(property.startingPrice)}
         </p>
 
@@ -102,6 +113,7 @@ export function PropertyCard({
             hover: { opacity: 1, height: "auto", marginTop: 10 },
           }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="overflow-hidden"
         >
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-body text-caption text-text-secondary">
             <span className="flex items-center gap-1">
@@ -117,7 +129,10 @@ export function PropertyCard({
             </span>
           </div>
 
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div
+            className="mt-3 flex flex-wrap gap-2"
+            onClick={(e) => e.stopPropagation()}
+          >
             <Button
               href={brochureHref}
               target={property.brochurePdf ? "_blank" : undefined}
@@ -127,7 +142,7 @@ export function PropertyCard({
               Get Brochure
             </Button>
             <Button
-              href={`/enquiry?property=${property.slug}`}
+              href={`/contact-us?property=${property.slug}`}
               variant="ghost"
               size="sm"
             >

@@ -1,5 +1,9 @@
+import { Suspense } from "react";
 import { buildMetadata } from "@/lib/seo";
 import { PropertiesHero } from "@/components/properties/hero/PropertiesHero";
+import { PropertiesListing } from "@/components/properties/grid/PropertyListing";
+import { FinalCTA } from "@/components/home/cta/FinalCTA";
+import { PROPERTIES_CTA_CONTENT } from "@/data/properties/properties-cta";
 
 export const metadata = buildMetadata({
   title: "Properties",
@@ -12,6 +16,10 @@ export default function PropertiesPage() {
   return (
     <main>
       <PropertiesHero />
+      <Suspense fallback={null}>
+        <PropertiesListing />
+        <FinalCTA {...PROPERTIES_CTA_CONTENT} />
+      </Suspense>
     </main>
   );
 }

@@ -123,7 +123,7 @@ export function PropertiesHero() {
         initial="hidden"
         animate="visible"
         variants={imageIn}
-        className="relative z-0 mt-10 h-[220px] w-full sm:h-[320px] lg:h-[420px]"
+        className="absolute bottom-0  z-0 mt-10 h-[320px] w-full max-w-5xl sm:h-[620px]  "
       >
         <Image
           src={PROPERTIES_HERO_CONTENT.image}
@@ -132,9 +132,8 @@ export function PropertiesHero() {
           priority
           quality={90}
           sizes="100vw"
-          className="object-cover object-top"
+          className="object-cover object-bottom"
         />
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
       </motion.div>
     </section>
   );
