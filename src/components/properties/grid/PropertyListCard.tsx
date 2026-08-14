@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { PropertyTypeBadge } from "@/components/ui/PropertyTypeBadge";
 import type { Property } from "@/types/property";
 import {
-  formatPrice,
+  formatPriceForStatus,
   getBedRangeLabel,
   getCategoryLabel,
   getStatusLabel,
@@ -81,7 +81,7 @@ export function PropertyListCard({
           <div>
             <p className="font-body text-caption text-text-secondary">From</p>
             <p className="font-heading text-h4 text-primary">
-              {formatPrice(property.startingPrice)}
+              {formatPriceForStatus(property.startingPrice, property.status)}
             </p>
           </div>
           <div className="flex flex-wrap gap-2">

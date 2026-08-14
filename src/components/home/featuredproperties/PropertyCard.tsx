@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { PropertyTypeBadge } from "@/components/ui/PropertyTypeBadge";
 import { Property } from "@/types/property";
 import {
-  formatPrice,
+  formatPriceForStatus,
   getBedRangeLabel,
   getCategoryLabel,
   getStatusLabel,
@@ -104,7 +104,7 @@ export function PropertyCard({
         </h3>
         <p className="mt-1 font-body text-xs text-subtle">From</p>
         <p className="font-heading text-h4 text-primary font-medium">
-          {formatPrice(property.startingPrice)}
+          {formatPriceForStatus(property.startingPrice, property.status)}
         </p>
 
         <motion.div
@@ -142,7 +142,7 @@ export function PropertyCard({
               Get Brochure
             </Button>
             <Button
-              href={`/contact-us?property=${property.slug}`}
+              href={`/enquiry?property=${property.slug}`}
               variant="ghost"
               size="sm"
             >

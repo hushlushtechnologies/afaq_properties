@@ -30,7 +30,7 @@ const CONTENT = {
     description:
       "Explore carefully selected off-plan and secondary properties across the UAE, offering opportunities to build your portfolio and make informed real estate decisions with the right guidance.",
     ctaLabel: "Enquiry Now",
-    ctaHref: "/contact-us",
+    ctaHref: "/enquiry",
   },
 };
 

@@ -11,6 +11,7 @@ import { ABOUT_STATS } from "@/data/hero/about-stats";
 import { ABOUT_HERO_CONTENT } from "@/data/about/about-hero";
 import { EASE_SMOOTH, DURATION } from "@/lib/motion";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 export function AboutHero() {
   const shouldReduceMotion = useReducedMotion();
@@ -153,6 +154,7 @@ export function AboutHero() {
               </motion.div>
             ))}
           </motion.div>
+          <ScrollIndicator />
         </motion.div>
       </Container>
     </section>

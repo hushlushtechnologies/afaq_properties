@@ -58,20 +58,20 @@ export function Navbar() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="fixed inset-x-0 top-4 sm:top-12 z-50"
+        className="fixed inset-x-0 top-4 sm:top-12 z-50 "
       >
         <Container
           className={cn(
-            "transition-all duration-500",
-            scrolled ? "max-w-5xl" : "max-w-7xl",
+            "mx-auto w-full transition-[max-width] duration-500 ease-smooth",
+            scrolled ? "max-w-6xl" : "max-w-7xl",
           )}
         >
           <div
             className={cn(
-              "flex items-center    justify-between rounded-lg border px-6 py-2.5 backdrop-blur-xl transition-all duration-400 ease-smooth ",
+              "flex items-center justify-between rounded-lg border px-10  py-2.5 backdrop-blur-xl transition-all duration-400 ease-smooth ",
               scrolled
-                ? " bg-card-gradient/60 border-blue-500/15 shadow md:px-8"
-                : " bg-card-gradient border-border  shadow-sm md:px-10",
+                ? " bg-card-gradient/60 border-blue-500/15 shadow "
+                : " bg-card-gradient border-border  shadow-sm ",
             )}
           >
             <motion.div variants={item}>

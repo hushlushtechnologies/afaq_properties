@@ -10,6 +10,7 @@ import { GridPattern } from "@/components/ui/GridPattern";
 import { PROPERTIES_HERO_CONTENT } from "@/data/properties/properties-hero";
 import { EASE_SMOOTH, DURATION } from "@/lib/motion";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 export function PropertiesHero() {
   const shouldReduceMotion = useReducedMotion();
@@ -135,6 +136,7 @@ export function PropertiesHero() {
           className="object-cover object-bottom"
         />
       </motion.div>
+      <ScrollIndicator />
     </section>
   );
 }

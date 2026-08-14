@@ -30,6 +30,13 @@ export function getAllPublishedProperties(): Property[] {
 export function formatPrice(amount: number): string {
   return `AED ${amount.toLocaleString("en-US")}`;
 }
+export function formatPriceForStatus(
+  amount: number,
+  status: PropertyStatus,
+): string {
+  const base = formatPrice(amount);
+  return status === "rental" ? `${base} / year` : base;
+}
 
 const BED_COUNT_MAP: Record<AvailableUnit["type"], number> = {
   studio: 0,

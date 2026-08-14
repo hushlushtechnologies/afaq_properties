@@ -13,6 +13,7 @@ import {
 } from "@/data/careers/careers-hero";
 import { EASE_SMOOTH, DURATION } from "@/lib/motion";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 export function CareersHero() {
   const shouldReduceMotion = useReducedMotion();
@@ -112,6 +113,7 @@ export function CareersHero() {
           className="mt-14 sm:mt-20"
         />
       </Container>
+      <ScrollIndicator />
     </section>
   );
 }

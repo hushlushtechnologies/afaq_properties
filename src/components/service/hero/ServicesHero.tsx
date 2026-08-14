@@ -11,6 +11,7 @@ import { GridPattern } from "@/components/ui/GridPattern";
 import { SERVICES_HERO_CONTENT } from "@/data/service/services-hero";
 import { EASE_SMOOTH, DURATION } from "@/lib/motion";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 export function ServicesHero() {
   const shouldReduceMotion = useReducedMotion();
@@ -150,6 +151,7 @@ export function ServicesHero() {
           </motion.div>
         </div>
       </Container>
+      <ScrollIndicator />
     </section>
   );
 }

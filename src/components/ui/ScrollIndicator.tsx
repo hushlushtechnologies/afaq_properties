@@ -8,7 +8,7 @@ export function ScrollIndicator() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.2, duration: 0.6 }}
-      className="absolute bottom-40 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
+      className="absolute bottom-0 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
       aria-hidden="true"
     >
       <span className="text-muted text-xs font-normal font-body tracking-widest uppercase">

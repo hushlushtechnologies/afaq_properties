@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   LayoutGrid,
@@ -52,9 +53,15 @@ const PAGE_SIZE = 9;
 
 interface PropertiesListingProps {
   fixedStatus?: PropertyStatus;
+  backgroundImage?: string;
+  resultsLabel?: string;
 }
 
-export function PropertiesListing({ fixedStatus }: PropertiesListingProps) {
+export function PropertiesListing({
+  fixedStatus,
+  backgroundImage,
+  resultsLabel = "Properties",
+}: PropertiesListingProps) {
   const shouldReduceMotion = useReducedMotion();
   const router = useRouter();
   const pathname = usePathname();
@@ -78,7 +85,6 @@ export function PropertiesListing({ fixedStatus }: PropertiesListingProps) {
     maxPrice: Number(searchParams.get("maxPrice")) || priceBounds.max,
   };
 
-  // Draft state — what the form fields show while the user is adjusting them
   const [search, setSearch] = useState(initialFilters.search);
   const [emirate, setEmirate] = useState(initialFilters.emirate);
   const [community, setCommunity] = useState(initialFilters.community);
@@ -91,7 +97,6 @@ export function PropertiesListing({ fixedStatus }: PropertiesListingProps) {
     initialFilters.maxPrice,
   ]);
 
-  // Applied state — what actually filters the data + syncs the URL. Only updates on Search submit / chip removal / reset.
   const [appliedFilters, setAppliedFilters] =
     useState<PropertyFilterValues>(initialFilters);
 
@@ -102,7 +107,6 @@ export function PropertiesListing({ fixedStatus }: PropertiesListingProps) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-  // URL sync — only runs when applied filters or sort actually change, not on every keystroke/drag
   useEffect(() => {
     const params = new URLSearchParams();
     if (appliedFilters.search) params.set("search", appliedFilters.search);
@@ -130,7 +134,6 @@ export function PropertiesListing({ fixedStatus }: PropertiesListingProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [appliedFilters, sort]);
 
-  // Community auto-clears if it doesn't belong to the newly selected emirate (draft-level, immediate UX)
   useEffect(() => {
     if (!emirate) return;
     const validCommunities = getCommunitiesForEmirate(emirate as Emirate).map(
@@ -223,7 +226,6 @@ export function PropertiesListing({ fixedStatus }: PropertiesListingProps) {
     key: K,
     resetValue: PropertyFilterValues[K],
   ) {
-    // Clear both draft (so the form reflects it) and applied (so results update immediately)
     switch (key) {
       case "search":
         setSearch(resetValue as string);
@@ -346,205 +348,233 @@ export function PropertiesListing({ fixedStatus }: PropertiesListingProps) {
   };
 
   return (
-    <Section id="filters">
-      <form
-        onSubmit={handleSearchSubmit}
-        className="rounded-md border border-border bg-card p-5 max-w-5xl mx-auto sm:p-6"
-      >
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <SearchInput
-            value={search}
-            onChange={setSearch}
-            placeholder="Search by name, community, developer"
-            className="sm:col-span-2 lg:col-span-4"
-          />
-          <SelectDropdown
-            label="Emirate"
-            value={emirate}
-            options={emirateOptions}
-            onChange={setEmirate}
-            placeholder="All Emirates"
-          />
-          <SelectDropdown
-            label="Community"
-            value={community}
-            options={communityOptions}
-            onChange={setCommunity}
-            placeholder={emirate ? "All Communities" : "Select emirate first"}
-            disabled={!emirate}
-          />
-          {!fixedStatus && (
+    <Section
+      id="filters"
+      className={backgroundImage ? "pt-0" : undefined}
+      background={
+        backgroundImage ? (
+          <>
+            <div className="absolute inset-x-0 top-0 h-[320px] sm:h-[420px]">
+              <Image
+                src={backgroundImage}
+                alt="UAE Real Estate"
+                fill
+                priority
+                quality={90}
+                sizes="100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute inset-x-0 top-0 h-[320px] bg-gradient-to-b from-black/50 via-black/70 to-background sm:h-[420px]" />
+          </>
+        ) : undefined
+      }
+    >
+      <div className={backgroundImage ? "relative pt-16 sm:pt-24" : "relative"}>
+        <form
+          onSubmit={handleSearchSubmit}
+          className="rounded-md border border-border bg-card p-5 sm:p-8 max-w-5xl w-full mx-auto"
+        >
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <SearchInput
+              value={search}
+              onChange={setSearch}
+              placeholder="Search by name, community, developer"
+              className="sm:col-span-2 lg:col-span-4"
+            />
             <SelectDropdown
-              label="Property Status"
-              value={status}
-              options={statusOptions}
-              onChange={setStatus}
-              placeholder="All Statuses"
+              label="Emirate"
+              value={emirate}
+              options={emirateOptions}
+              onChange={setEmirate}
+              placeholder="All Emirates"
             />
-          )}
-          <SelectDropdown
-            label="Property Type"
-            value={category}
-            options={categoryOptions}
-            onChange={setCategory}
-            placeholder="All Types"
-          />
-          <SelectDropdown
-            label="Bedrooms"
-            value={bedrooms}
-            options={BEDROOM_FILTER_OPTIONS}
-            onChange={setBedrooms}
-            placeholder="Any"
-          />
-          <SelectDropdown
-            label="Developer"
-            value={developer}
-            options={developerOptions}
-            onChange={setDeveloper}
-            placeholder="All Developers"
-          />
-
-          <div className="flex flex-col justify-end gap-1.5 sm:col-span-2 lg:col-span-2">
-            <span className="font-body text-caption font-medium uppercase tracking-wide text-text-secondary">
-              Price Range
-            </span>
-            <RangeSlider
-              min={priceBounds.min}
-              max={priceBounds.max}
-              step={10000}
-              value={priceRange}
-              onChange={setPriceRange}
+            <SelectDropdown
+              label="Community"
+              value={community}
+              options={communityOptions}
+              onChange={setCommunity}
+              placeholder={emirate ? "All Communities" : "Select emirate first"}
+              disabled={!emirate}
             />
-          </div>
-        </div>
-
-        <div className="mt-10 flex justify-end">
-          <Button
-            type="submit"
-            variant="secondary"
-            size="md"
-            icon={SearchIcon}
-            className="w-full  sm:w-auto"
-          >
-            Search Properties
-          </Button>
-        </div>
-
-        {activeFilters.length > 0 && (
-          <div className="mt-10 flex flex-wrap items-center gap-2 border-t border-border pt-4">
-            {activeFilters.map((f) => (
-              <FilterChip key={f.key} label={f.label} onRemove={f.clear} />
-            ))}
-            <button
-              type="button"
-              onClick={handleReset}
-              className="ml-1 inline-flex items-center gap-1 font-body text-caption text-text-secondary transition-colors duration-300 hover:text-primary"
-            >
-              <RotateCcw size={12} /> Reset All
-            </button>
-          </div>
-        )}
-      </form>
-
-      <div className="mt-20 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-body text-body-sm text-text-secondary">
-          <span className="font-heading text-h4 text-primary">
-            {filtered.length}
-          </span>{" "}
-          Properties Found
-        </p>
-
-        <div className="flex items-center gap-3">
-          <SelectDropdown
-            value={sort}
-            options={SORT_OPTIONS}
-            onChange={(v) => setSort(v as PropertySort)}
-            className="w-48"
-          />
-          <div className="flex items-center gap-1 rounded border border-border p-1">
-            <button
-              type="button"
-              onClick={() => setView("grid")}
-              aria-label="Grid view"
-              aria-pressed={view === "grid"}
-              className={cn(
-                "rounded p-1.5 transition-colors duration-300",
-                view === "grid"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-text-secondary hover:text-primary",
-              )}
-            >
-              <LayoutGrid size={16} />
-            </button>
-            <button
-              type="button"
-              onClick={() => setView("list")}
-              aria-label="List view"
-              aria-pressed={view === "list"}
-              className={cn(
-                "rounded p-1.5 transition-colors duration-300",
-                view === "list"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-text-secondary hover:text-primary",
-              )}
-            >
-              <List size={16} />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {filtered.length === 0 ? (
-        <EmptyState
-          icon={<NoPropertiesIcon />}
-          title="No Properties Found"
-          description="Try adjusting your filters or search terms to find more results."
-        />
-      ) : (
-        <>
-          <motion.div
-            key={view}
-            variants={container}
-            initial="hidden"
-            animate="visible"
-            className={cn(
-              "mt-14",
-              view === "grid"
-                ? "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-                : "grid grid-cols-1 gap-4 lg:grid-cols-2",
+            {!fixedStatus && (
+              <SelectDropdown
+                label="Property Status"
+                value={status}
+                options={statusOptions}
+                onChange={setStatus}
+                placeholder="All Statuses"
+              />
             )}
-          >
-            {visibleProperties.map((property) =>
-              view === "grid" ? (
-                <motion.div key={property.id} variants={item} className="h-80">
-                  <PropertyCard
-                    property={property}
-                    imageVariant="listing"
-                    showFeaturedBadge
-                    className="h-full"
-                  />
-                </motion.div>
-              ) : (
-                <motion.div key={property.id} variants={item}>
-                  <PropertyListCard property={property} />
-                </motion.div>
-              ),
-            )}
-          </motion.div>
+            <SelectDropdown
+              label="Property Type"
+              value={category}
+              options={categoryOptions}
+              onChange={setCategory}
+              placeholder="All Types"
+            />
+            <SelectDropdown
+              label="Bedrooms"
+              value={bedrooms}
+              options={BEDROOM_FILTER_OPTIONS}
+              onChange={setBedrooms}
+              placeholder="Any"
+            />
+            <SelectDropdown
+              label="Developer"
+              value={developer}
+              options={developerOptions}
+              onChange={setDeveloper}
+              placeholder="All Developers"
+            />
 
-          {hasMore && (
-            <div
-              ref={sentinelRef}
-              className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+            <div className="flex flex-col justify-start gap-1.5  sm:col-span-2 lg:col-span-2">
+              <span className="font-body text-caption font-medium uppercase tracking-wide text-text-secondary">
+                Price Range
+              </span>
+              <RangeSlider
+                min={priceBounds.min}
+                max={priceBounds.max}
+                step={10000}
+                value={priceRange}
+                onChange={setPriceRange}
+              />
+            </div>
+          </div>
+
+          <div className="mt-5 flex justify-end">
+            <Button
+              type="submit"
+              variant="secondary"
+              size="sm"
+              icon={SearchIcon}
+              className="w-full rounded sm:w-auto"
             >
-              {isLoadingMore &&
-                Array.from({ length: 3 }).map((_, i) => (
-                  <PropertyCardSkeleton key={i} className="h-80" />
-                ))}
+              Search Properties
+            </Button>
+          </div>
+
+          {activeFilters.length > 0 && (
+            <div className="mt-5 flex flex-wrap items-center gap-2 border-t border-border pt-4">
+              {activeFilters.map((f) => (
+                <FilterChip key={f.key} label={f.label} onRemove={f.clear} />
+              ))}
+              <button
+                type="button"
+                onClick={handleReset}
+                className="ml-1 inline-flex items-center gap-1 font-body text-caption text-text-secondary transition-colors duration-300 hover:text-primary"
+              >
+                <RotateCcw size={12} /> Reset All
+              </button>
             </div>
           )}
-        </>
-      )}
+        </form>
+
+        <div className="mt-20 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-body text-body-sm text-text-secondary">
+            <span className="font-heading text-h4 text-primary">
+              {filtered.length}
+            </span>{" "}
+            {resultsLabel} Found
+          </p>
+
+          <div className="flex items-center sm:w-auto w-full justify-between gap-3">
+            <SelectDropdown
+              ariaLabel="Sort properties by"
+              value={sort}
+              options={SORT_OPTIONS}
+              onChange={(v) => setSort(v as PropertySort)}
+              className="w-48"
+            />
+            <div className="flex items-center gap-1 rounded border border-border p-1">
+              <button
+                type="button"
+                onClick={() => setView("grid")}
+                aria-label="Grid view"
+                aria-pressed={view === "grid"}
+                className={cn(
+                  "rounded p-1.5 transition-colors duration-300",
+                  view === "grid"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-text-secondary hover:text-primary",
+                )}
+              >
+                <LayoutGrid size={16} />
+              </button>
+              <button
+                type="button"
+                onClick={() => setView("list")}
+                aria-label="List view"
+                aria-pressed={view === "list"}
+                className={cn(
+                  "rounded p-1.5 transition-colors duration-300",
+                  view === "list"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-text-secondary hover:text-primary",
+                )}
+              >
+                <List size={16} />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {filtered.length === 0 ? (
+          <EmptyState
+            icon={<NoPropertiesIcon />}
+            title="No Properties Found"
+            description="Try adjusting your filters or search terms to find more results."
+          />
+        ) : (
+          <>
+            <motion.div
+              key={view}
+              variants={container}
+              initial="hidden"
+              animate="visible"
+              className={cn(
+                "mt-14",
+                view === "grid"
+                  ? "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+                  : "grid grid-cols-1 gap-4 lg:grid-cols-2",
+              )}
+            >
+              {visibleProperties.map((property) =>
+                view === "grid" ? (
+                  <motion.div
+                    key={property.id}
+                    variants={item}
+                    className="h-80"
+                  >
+                    <PropertyCard
+                      property={property}
+                      imageVariant="listing"
+                      showFeaturedBadge
+                      className="h-full"
+                    />
+                  </motion.div>
+                ) : (
+                  <motion.div key={property.id} variants={item}>
+                    <PropertyListCard property={property} />
+                  </motion.div>
+                ),
+              )}
+            </motion.div>
+
+            {hasMore && (
+              <div
+                ref={sentinelRef}
+                className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+              >
+                {isLoadingMore &&
+                  Array.from({ length: 3 }).map((_, i) => (
+                    <PropertyCardSkeleton key={i} className="h-80" />
+                  ))}
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </Section>
   );
 }
