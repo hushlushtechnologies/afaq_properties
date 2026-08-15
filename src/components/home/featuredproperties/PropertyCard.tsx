@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, BedDouble, Ruler, Star } from "lucide-react";
+import { MapPin, BedDouble, Ruler, Star, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { PropertyTypeBadge } from "@/components/ui/PropertyTypeBadge";
+import { useBrochureModal } from "@/context/BrochureModal";
 import { Property } from "@/types/property";
 import {
   formatPriceForStatus,
@@ -15,6 +16,7 @@ import {
   getStatusLabel,
   getEmirateLabel,
   getCommunityLabel,
+  toBrochureProperty,
 } from "@/lib/properties";
 
 interface PropertyCardProps {
@@ -35,13 +37,11 @@ export function PropertyCard({
   showFeaturedBadge = false,
 }: PropertyCardProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { openBrochureModal } = useBrochureModal();
   const imageSrc =
     imageVariant === "featured"
       ? property.featuredImage
       : property.propertyImage;
-  const brochureHref =
-    property.brochurePdf ??
-    `/contact-us?type=brochure&property=${property.slug}`;
 
   return (
     <motion.div
@@ -134,10 +134,11 @@ export function PropertyCard({
             onClick={(e) => e.stopPropagation()}
           >
             <Button
-              href={brochureHref}
-              target={property.brochurePdf ? "_blank" : undefined}
+              type="button"
+              onClick={() => openBrochureModal(toBrochureProperty(property))}
               variant="secondary"
               size="sm"
+              icon={Download}
             >
               Get Brochure
             </Button>

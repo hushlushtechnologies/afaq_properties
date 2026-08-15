@@ -1,5 +1,14 @@
+import { Suspense } from "react";
 import { buildMetadata } from "@/lib/seo";
-import { Container } from "@/components/ui/Container";
+import { ContactHero } from "@/components/contactUs/hero/ContactHero";
+import { ContactFormSection } from "@/components/contactUs/form/ContactFormSection";
+import { FAQ } from "@/components/offPlan/faq/FAQ";
+import {
+  CONTACT_FAQ_CONTENT,
+  CONTACT_FAQ_ITEMS,
+} from "@/data/contact/contact-faq";
+import { FinalCTA } from "@/components/home/cta/FinalCTA";
+import { CONTACT_CTA_CONTENT } from "@/data/contact/contact-cta";
 
 export const metadata = buildMetadata({
   title: "Contact Us",
@@ -10,14 +19,19 @@ export const metadata = buildMetadata({
 
 export default function ContactUsPage() {
   return (
-    <main className="min-h-screen pt-40 pb-24">
-      <Container>
-        <h1 className="font-heading text-h1 text-text">Contact Us</h1>
-        <p className="mt-4 max-w-2xl font-body text-body-lg text-text-secondary">
-          Placeholder content — the enquiry form will be built in a future
-          sprint.
-        </p>
-      </Container>
+    <main>
+      <ContactHero />
+      <Suspense fallback={null}>
+        <ContactFormSection />
+      </Suspense>
+      <FAQ
+        eyebrow={CONTACT_FAQ_CONTENT.eyebrow}
+        title={CONTACT_FAQ_CONTENT.title}
+        highlight={CONTACT_FAQ_CONTENT.highlight}
+        description={CONTACT_FAQ_CONTENT.description}
+        items={CONTACT_FAQ_ITEMS}
+      />
+      <FinalCTA {...CONTACT_CTA_CONTENT} />
     </main>
   );
 }

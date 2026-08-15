@@ -12,6 +12,7 @@ export interface SelectOption {
 }
 
 interface SelectDropdownProps {
+  id?: string;
   label?: string;
   ariaLabel?: string;
   value: string;
@@ -23,6 +24,7 @@ interface SelectDropdownProps {
 }
 
 export function SelectDropdown({
+  id,
   label,
   ariaLabel,
   value,
@@ -74,6 +76,7 @@ export function SelectDropdown({
       <div className="relative">
         <button
           type="button"
+          id={id}
           disabled={disabled}
           aria-haspopup="listbox"
           aria-expanded={open}
@@ -86,13 +89,13 @@ export function SelectDropdown({
             disabled && "opacity-50",
           )}
         >
-          <span className={cn(!selected && "text-muted")}>
+          <span className={cn(!selected && "text-subtle")}>
             {selected ? selected.label : placeholder}
           </span>
           <motion.span
             animate={{ rotate: open ? 180 : 0 }}
             transition={{ duration: 0.25, ease: EASE_SMOOTH }}
-            className="shrink-0 text-text-secondary"
+            className="shrink-0 text-muted"
           >
             <ChevronDown size={14} />
           </motion.span>

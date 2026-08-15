@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { ButtonHTMLAttributes } from "react";
 import type { LucideIcon } from "lucide-react";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "success";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -22,6 +22,7 @@ const variantStyles: Record<ButtonVariant, string> = {
   secondary: "bg-gold-gradient text-background hover:bg-accent",
   ghost:
     "border border-border text-text-secondary hover:bg-hero-gradient  bg-card-gradient",
+  success: "bg-success text-white hover:opacity-90",
   outline:
     "text-text text-primary hover:border-text-secondary hover:text-text-secondary bg-transparent border border-primary",
 };

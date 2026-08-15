@@ -1,20 +1,32 @@
-import type { Metadata } from "next";
-import { Container } from "@/components/ui/Container";
+import { buildMetadata } from "@/lib/seo";
+import { PageHero } from "@/components/offPlan/hero/OffPlanHero";
+import { ENQUIRY_HERO_CONTENT } from "@/data/enquiry/enquiry-hero";
+import { EnquirySection } from "@/components/enquiry/EnquirySection";
+import { FAQ } from "@/components/offPlan/faq/FAQ";
+import {
+  CONTACT_FAQ_CONTENT,
+  CONTACT_FAQ_ITEMS,
+} from "@/data/contact/contact-faq";
 
-export const metadata: Metadata = {
-  title: "Enquiry Now",
-  description: "Get in touch with Afaq Al Manzil Properties.",
-};
+export const metadata = buildMetadata({
+  title: "Property Enquiry",
+  description:
+    "Share your property requirements with Afaq Al Manzil Properties and let our team help you find the right opportunity across the UAE.",
+  path: "/enquiry-now",
+});
 
 export default function EnquiryPage() {
   return (
     <main className="min-h-screen pt-40 pb-24">
-      <Container>
-        <h1 className="font-heading text-h1 text-text">Enquiry Now</h1>
-        <p className="mt-4 max-w-2xl font-body text-body-lg text-text-secondary">
-          Placeholder content — the enquiry form will be built in a future sprint.
-        </p>
-      </Container>
+      <PageHero {...ENQUIRY_HERO_CONTENT} />
+      <EnquirySection />
+      <FAQ
+        eyebrow={CONTACT_FAQ_CONTENT.eyebrow}
+        title={CONTACT_FAQ_CONTENT.title}
+        highlight={CONTACT_FAQ_CONTENT.highlight}
+        description={CONTACT_FAQ_CONTENT.description}
+        items={CONTACT_FAQ_ITEMS}
+      />
     </main>
   );
 }

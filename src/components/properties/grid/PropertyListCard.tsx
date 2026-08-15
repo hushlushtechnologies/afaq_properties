@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { MapPin, BedDouble, Ruler, Star } from "lucide-react";
+import { MapPin, BedDouble, Ruler, Star, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { PropertyTypeBadge } from "@/components/ui/PropertyTypeBadge";
+import { useBrochureModal } from "@/context/BrochureModal";
 import type { Property } from "@/types/property";
 import {
   formatPriceForStatus,
@@ -11,6 +12,7 @@ import {
   getStatusLabel,
   getEmirateLabel,
   getCommunityLabel,
+  toBrochureProperty,
 } from "@/lib/properties";
 
 interface PropertyListCardProps {
@@ -22,9 +24,7 @@ export function PropertyListCard({
   property,
   className,
 }: PropertyListCardProps) {
-  const brochureHref =
-    property.brochurePdf ??
-    `/contact-us?type=brochure&property=${property.slug}`;
+  const { openBrochureModal } = useBrochureModal();
 
   return (
     <div
@@ -86,10 +86,11 @@ export function PropertyListCard({
           </div>
           <div className="flex flex-wrap gap-2">
             <Button
-              href={brochureHref}
-              target={property.brochurePdf ? "_blank" : undefined}
+              type="button"
+              onClick={() => openBrochureModal(toBrochureProperty(property))}
               variant="secondary"
               size="sm"
+              icon={Download}
             >
               Get Brochure
             </Button>

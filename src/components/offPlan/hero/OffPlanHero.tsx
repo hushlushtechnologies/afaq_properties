@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
-import { GridPattern } from "@/components/ui/GridPattern";
+
+import { ShineGrid } from "@/components/ui/ShineGrid";
 import { cn } from "@/lib/utils";
 import { EASE_SMOOTH, DURATION } from "@/lib/motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
@@ -71,27 +71,13 @@ export function PageHero({
     },
   };
 
-  const imageIn = {
-    hidden: { opacity: 0, scale: shouldReduceMotion ? 1 : 1.06 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: DURATION.cinematic,
-        ease: EASE_SMOOTH,
-        delay: shouldReduceMotion ? 0 : 0.4,
-      },
-    },
-  };
-
   return (
     <section
       className={cn(
-        "relative w-full overflow-hidden bg-background pb-16 pt-32 sm:pb-20 sm:pt-40",
+        "relative w-full  bg-hero-gradient pb-16 pt-32 sm:pb-20 sm:pt-40",
       )}
     >
-      <GridPattern className="pointer-events-none absolute inset-0 h-full w-full sm:-top-56 -top-96 " />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#000614] via-black/40 to-transparent" />
+      <ShineGrid />
 
       <Container className="relative z-10">
         <motion.div

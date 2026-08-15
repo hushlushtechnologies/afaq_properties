@@ -12,6 +12,8 @@ import { EmirateData } from "@/types/emirate";
 import { Community } from "@/types/community";
 import { getDeveloperLabel } from "@/lib/developers";
 
+import type { BrochureProperty } from "@/types/brochure";
+
 export function getFeaturedProperties(limit = 6): Property[] {
   const properties = propertiesData as Property[];
   return properties
@@ -218,3 +220,21 @@ export const SORT_OPTIONS: { value: PropertySort; label: string }[] = [
   { value: "name-asc", label: "Name: A to Z" },
   { value: "name-desc", label: "Name: Z to A" },
 ];
+
+export function getPropertyBySlug(slug: string): Property | undefined {
+  const properties = propertiesData as Property[];
+  return properties.find(
+    (p) => p.slug === slug && p.publishStatus === "published",
+  );
+}
+
+export function toBrochureProperty(property: Property): BrochureProperty {
+  return {
+    propertyId: property.id,
+    propertyName: property.name,
+    brochureUrl: property.brochurePdf,
+    community: getCommunityLabel(property.community),
+    developer: getDeveloperLabel(property.developer),
+    propertyStatus: getStatusLabel(property.status),
+  };
+}
