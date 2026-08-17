@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
@@ -16,6 +16,11 @@ interface ModalProps {
   className?: string;
 }
 
+const emptySubscribe = () => () => {};
+
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
+
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
@@ -30,15 +35,13 @@ export function Modal({
   const shouldReduceMotion = useReducedMotion();
   const panelRef = useRef<HTMLDivElement>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
-  const titleId = useRef(
-    `modal-title-${Math.random().toString(36).slice(2, 9)}`,
-  ).current;
-  const descId = useRef(
-    `modal-desc-${Math.random().toString(36).slice(2, 9)}`,
-  ).current;
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const titleId = useId();
+  const descId = useId();
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    getClientSnapshot,
+    getServerSnapshot,
+  );
 
   useEffect(() => {
     if (!open) return;

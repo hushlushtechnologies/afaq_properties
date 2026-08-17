@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface RangeSliderProps {
@@ -21,8 +21,6 @@ export function RangeSlider({
   className,
 }: RangeSliderProps) {
   const [local, setLocal] = useState(value);
-
-  useEffect(() => setLocal(value), [value]);
 
   function handleMinChange(next: number) {
     const clamped = Math.min(next, local[1] - step);

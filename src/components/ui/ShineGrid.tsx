@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export function ShineGrid({ className }: { className?: string }) {
+export function ShineGrid() {
   return (
     <div className="absolute flex  items-center justify-center pointer-events-none  inset-0 h-full w-full bg-hero-gradient">
       <div

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Send, User, Mail, Phone as PhoneIcon } from "lucide-react";
 import { FormField } from "@/components/ui/FormField";
@@ -27,8 +27,8 @@ export function ContactForm() {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
+    control,
     formState: { errors },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -41,8 +41,17 @@ export function ContactForm() {
     },
   });
 
-  const subjectValue = watch("subject") ?? "";
-  const messageValue = watch("message") ?? "";
+  const subjectValue =
+    useWatch({
+      control,
+      name: "subject",
+    }) ?? "";
+
+  const messageValue =
+    useWatch({
+      control,
+      name: "message",
+    }) ?? "";
 
   async function onSubmit(values: ContactFormValues) {
     setStatus("loading");

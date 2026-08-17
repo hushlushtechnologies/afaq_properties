@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Send,
@@ -56,8 +56,8 @@ export function EnquiryForm() {
     register,
     handleSubmit,
     setValue,
-    watch,
     reset,
+    control,
     formState: { errors },
   } = useForm<EnquiryFormValues>({
     resolver: zodResolver(enquiryFormSchema),
@@ -74,12 +74,41 @@ export function EnquiryForm() {
     },
   });
 
-  const interestedIn = watch("interestedIn") ?? "";
-  const interestedEmirate = watch("interestedEmirate") ?? "";
-  const propertyType = watch("propertyType") ?? "";
-  const budgetMin = watch("budgetMin") ?? priceBounds.min;
-  const budgetMax = watch("budgetMax") ?? priceBounds.max;
-  const messageValue = watch("message") ?? "";
+  const interestedIn =
+    useWatch({
+      control,
+      name: "interestedIn",
+    }) ?? "";
+
+  const interestedEmirate =
+    useWatch({
+      control,
+      name: "interestedEmirate",
+    }) ?? "";
+
+  const propertyType =
+    useWatch({
+      control,
+      name: "propertyType",
+    }) ?? "";
+
+  const budgetMin =
+    useWatch({
+      control,
+      name: "budgetMin",
+    }) ?? priceBounds.min;
+
+  const budgetMax =
+    useWatch({
+      control,
+      name: "budgetMax",
+    }) ?? priceBounds.max;
+
+  const messageValue =
+    useWatch({
+      control,
+      name: "message",
+    }) ?? "";
 
   async function onSubmit(values: EnquiryFormValues) {
     setStatus("loading");

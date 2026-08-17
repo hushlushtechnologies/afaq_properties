@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
@@ -18,18 +18,36 @@ const DISMISS_STORAGE_KEY = "afaq-whatsapp-bubble-dismissed";
 const getWhatsAppLink = (message: string) =>
   `https://wa.me/971545813201?text=${encodeURIComponent(message)}`;
 
+function subscribeToDismissal(callback: () => void) {
+  window.addEventListener("storage", callback);
+  window.addEventListener("afaq-whatsapp-dismissed", callback);
+
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener("afaq-whatsapp-dismissed", callback);
+  };
+}
+
+function getDismissedSnapshot() {
+  return sessionStorage.getItem(DISMISS_STORAGE_KEY) === "true";
+}
+
+function getDismissedServerSnapshot() {
+  return true;
+}
+
 export function WhatsAppFloatingBar() {
   const shouldReduceMotion = useReducedMotion();
   const [bubbleVisible, setBubbleVisible] = useState(false);
   const [messageIndex, setMessageIndex] = useState(0);
-  const [permanentlyDismissed, setPermanentlyDismissed] = useState(true);
+
   const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => {
-    const alreadyDismissed =
-      sessionStorage.getItem(DISMISS_STORAGE_KEY) === "true";
-    setPermanentlyDismissed(alreadyDismissed);
-  }, []);
+  const permanentlyDismissed = useSyncExternalStore(
+    subscribeToDismissal,
+    getDismissedSnapshot,
+    getDismissedServerSnapshot,
+  );
 
   useEffect(() => {
     if (permanentlyDismissed) return;
@@ -53,8 +71,9 @@ export function WhatsAppFloatingBar() {
 
   function dismissPermanently() {
     setBubbleVisible(false);
-    setPermanentlyDismissed(true);
     sessionStorage.setItem(DISMISS_STORAGE_KEY, "true");
+
+    window.dispatchEvent(new Event("afaq-whatsapp-dismissed"));
   }
 
   function handleBubbleClick() {

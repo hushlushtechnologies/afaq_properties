@@ -1,12 +1,4 @@
 import type { TrustPillarItem } from "@/components/about/trust/TrustPillarsGrid";
-import {
-  MapPin,
-  Handshake,
-  UserCheck,
-  Eye,
-  Headphones,
-  TrendingUp,
-} from "lucide-react";
 
 export const WHY_TRUST_CONTENT = {
   eyebrow: "Why Afaq Al Manzil",

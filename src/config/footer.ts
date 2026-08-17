@@ -26,7 +26,7 @@ export const FOOTER_LEGAL_LINKS: FooterLink[] = [
 ];
 
 export const COMPANY_CONTACT = {
-  phones: ["+971 54 581 3201", "+971 54 581 3201"],
+  phones: ["+971 54 581 3201"],
   email: "info@afaqalmanzilproperties.com",
   address:
     "AL Zarooni Building - Office no - 501 Sheikh Zayed Rd - near insurance market metro - Al Barsha First - Al Barsha - Dubai",

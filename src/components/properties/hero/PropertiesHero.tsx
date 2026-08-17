@@ -11,7 +11,6 @@ import { PROPERTIES_HERO_CONTENT } from "@/data/properties/properties-hero";
 import { EASE_SMOOTH, DURATION } from "@/lib/motion";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
-import { ShineGrid } from "@/components/ui/ShineGrid";
 
 export function PropertiesHero() {
   const shouldReduceMotion = useReducedMotion();

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useId, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -37,9 +37,7 @@ export function SelectDropdown({
   const shouldReduceMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
-  const listId = useRef(
-    `select-${Math.random().toString(36).slice(2, 9)}`,
-  ).current;
+  const listId = useId();
 
   const selected = options.find((opt) => opt.value === value);
 

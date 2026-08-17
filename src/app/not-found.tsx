@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Search } from "lucide-react";
 import { Container } from "@/components/ui/Container";
