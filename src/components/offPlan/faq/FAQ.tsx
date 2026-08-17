@@ -60,7 +60,7 @@ export function FAQ({
   };
 
   return (
-    <Section>
+    <Section id="faq">
       <SplitSectionHeading
         eyebrow={eyebrow}
         title={title}
