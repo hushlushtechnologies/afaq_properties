@@ -4,6 +4,7 @@ import {
   FaTwitter,
   FaWhatsapp,
   FaSnapchatGhost,
+  FaLinkedin,
 } from "react-icons/fa";
 import type { IconType } from "react-icons";
 
@@ -34,5 +35,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: "Snapchat",
     href: "https://www.snapchat.com/@afaqalmanzilp26?share_id=2oqy99WSz9w&locale=en-AE",
     icon: FaSnapchatGhost,
+  },
+  {
+    label: "Linkedin",
+    href: "https://www.linkedin.com/company/afaq-almanzil-properties",
+    icon: FaLinkedin,
   },
 ];
