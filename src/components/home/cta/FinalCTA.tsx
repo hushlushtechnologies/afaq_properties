@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Section } from "@/components/layout/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
@@ -125,7 +126,7 @@ export function FinalCTA({
               target="_blank"
               variant="ghost"
               size="md"
-              icon={MessageCircle}
+              icon={FaWhatsapp}
             >
               {secondaryAction}
             </Button>

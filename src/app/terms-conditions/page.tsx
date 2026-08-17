@@ -1,5 +1,9 @@
 import { buildMetadata } from "@/lib/seo";
-import { Container } from "@/components/ui/Container";
+import { LegalPageLayout } from "@/components/legal/LegalPageLayout";
+import {
+  TERMS_CONDITIONS_CONTENT,
+  TERMS_CONDITIONS_SECTIONS,
+} from "@/data/legal/legal-terms";
 
 export const metadata = buildMetadata({
   title: "Privacy Policy",
@@ -10,13 +14,14 @@ export const metadata = buildMetadata({
 
 export default function TermsConditionsPage() {
   return (
-    <main className="min-h-screen pt-40 pb-24">
-      <Container>
-        <h1 className="font-heading text-h1 text-text">Terms & Conditions</h1>
-        <p className="mt-4 max-w-2xl font-body text-body-lg text-text-secondary">
-          Placeholder content — this page will be built in a future sprint.
-        </p>
-      </Container>
-    </main>
+    <LegalPageLayout
+      eyebrow={TERMS_CONDITIONS_CONTENT.eyebrow}
+      title={TERMS_CONDITIONS_CONTENT.title}
+      description={TERMS_CONDITIONS_CONTENT.description}
+      lastUpdated={TERMS_CONDITIONS_CONTENT.lastUpdated}
+      sections={TERMS_CONDITIONS_SECTIONS}
+      closingTitle={TERMS_CONDITIONS_CONTENT.closingTitle}
+      closingText={TERMS_CONDITIONS_CONTENT.closingText}
+    />
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ButtonHTMLAttributes } from "react";
 import type { LucideIcon } from "lucide-react";
+import type { IconType } from "react-icons";
 
 type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "success";
 type ButtonSize = "sm" | "md" | "lg";
@@ -13,7 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   href?: string;
   target?: string;
-  icon?: LucideIcon;
+  icon?: LucideIcon | IconType;
 }
 
 const variantStyles: Record<ButtonVariant, string> = {

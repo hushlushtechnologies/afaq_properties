@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
@@ -116,7 +117,7 @@ export function ServicesHero() {
                 target="_blank"
                 variant="ghost"
                 size="md"
-                icon={MessageCircle}
+                icon={FaWhatsapp}
                 className="rounded"
               >
                 {SERVICES_HERO_CONTENT.secondaryCta.label}
