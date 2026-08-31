@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { lora, publicSans } from "@/lib/fonts";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { SiteChrome } from "@/components/layout/SiteChrome";
+
 import { getOrganizationSchema } from "@/lib/structured-data";
-import { WhatsAppFloatingBar } from "@/components/layout/WhatsAppFloatingBar";
+
 import { BrochureModalProvider } from "@/context/BrochureModal";
 import "./globals.css";
 
@@ -84,11 +84,7 @@ export default function RootLayout({
           }}
         />
         <BrochureModalProvider>
-          <Navbar />
-
-          {children}
-          <Footer />
-          <WhatsAppFloatingBar />
+          <SiteChrome>{children}</SiteChrome>
         </BrochureModalProvider>
       </body>
     </html>

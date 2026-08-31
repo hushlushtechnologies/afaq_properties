@@ -12,7 +12,30 @@ import { EmirateData } from "@/types/emirate";
 import { Community } from "@/types/community";
 import { getDeveloperLabel } from "@/lib/developers";
 
+import { sanityClient } from "@/sanity/lib/client";
+import {
+  allPublishedPropertiesQuery,
+  featuredPropertiesQuery,
+} from "@/sanity/lib/queries";
+import { mapSanityProperties } from "@/sanity/lib/mappers";
+import type { SanityProperty } from "@/types/sanity/sanity-property";
+
 import type { BrochureProperty } from "@/types/brochure";
+
+export async function fetchAllPublishedProperties(): Promise<Property[]> {
+  const raw = await sanityClient.fetch<SanityProperty[]>(
+    allPublishedPropertiesQuery,
+  );
+  return mapSanityProperties(raw);
+}
+
+export async function fetchFeaturedProperties(limit = 6): Promise<Property[]> {
+  const raw = await sanityClient.fetch<SanityProperty[]>(
+    featuredPropertiesQuery,
+    { limit },
+  );
+  return mapSanityProperties(raw);
+}
 
 export function getFeaturedProperties(limit = 6): Property[] {
   const properties = propertiesData as Property[];
@@ -183,11 +206,7 @@ export function filterProperties(
 }
 
 export type PropertySort =
-  | "featured"
-  | "price-asc"
-  | "price-desc"
-  | "name-asc"
-  | "name-desc";
+  "featured" | "price-asc" | "price-desc" | "name-asc" | "name-desc";
 
 export function sortProperties(
   properties: Property[],
