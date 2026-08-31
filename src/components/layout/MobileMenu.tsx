@@ -57,7 +57,7 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
             }}
             className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 py-4"
           >
-            {NAV_LINKS.map((link) => {
+            {NAV_LINKS.filter((link) => link.enabled !== false).map((link) => {
               const isActive = pathname === link.href;
               return (
                 <motion.div

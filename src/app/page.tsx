@@ -56,13 +56,13 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <LocationExplorer />
+      {/* <LocationExplorer /> */}
       <PropertyOpportunity />
-      <FeaturedProperties />
+      {/* <FeaturedProperties /> */}
       <WhyAfaq />
       <FeaturedDevelopers />
       <AboutAfaq />
-      <TeamGrid />
+      {/* <TeamGrid /> */}
       <Expertise />
       <PropertyJourney
         image={PROPERTY_JOURNEY_IMAGE}

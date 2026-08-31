@@ -85,24 +85,26 @@ export function Navbar() {
               className="hidden items-center gap-6 lg:flex"
               aria-label="Primary"
             >
-              {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                      "relative font-body text-xs text-text-secondary transition-colors duration-400 hover:text-accent",
-                      isActive && "text-primary",
-                    )}
-                  >
-                    {link.label}
-                    {isActive && (
-                      <span className="absolute -bottom-2.5 left-0 h-[1px] w-full bg-primary" />
-                    )}
-                  </Link>
-                );
-              })}
+              {NAV_LINKS.filter((link) => link.enabled !== false).map(
+                (link) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={cn(
+                        "relative font-body text-xs text-text-secondary transition-colors duration-400 hover:text-accent",
+                        isActive && "text-primary",
+                      )}
+                    >
+                      {link.label}
+                      {isActive && (
+                        <span className="absolute -bottom-2.5 left-0 h-[1px] w-full bg-primary" />
+                      )}
+                    </Link>
+                  );
+                },
+              )}
             </motion.nav>
 
             <motion.div variants={item} className="hidden lg:block">

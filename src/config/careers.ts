@@ -1,1 +1,1 @@
-export const CAREERS_EMAIL = "careers@afaq.com";
+export const CAREERS_EMAIL = "info@afaqalmanzilproperties.com";

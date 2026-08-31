@@ -11,6 +11,7 @@ import {
 } from "@/data/offPlan/off-plan-faq";
 import { FinalCTA } from "@/components/home/cta/FinalCTA";
 import { PROPERTIES_CTA_CONTENT } from "@/data/properties/properties-cta";
+import { notFound } from "next/navigation";
 
 export const metadata = buildMetadata({
   title: "Off-Plan Properties",
@@ -20,26 +21,27 @@ export const metadata = buildMetadata({
 });
 
 export default function OffPlanPage() {
-  return (
-    <main>
-      <main>
-        <PageHero {...OFF_PLAN_HERO_CONTENT} />
-        <Suspense fallback={null}>
-          <PropertiesListing
-            fixedStatus="off-plan"
-            backgroundImage={OFF_PLAN_GRID_BACKGROUND}
-            resultsLabel="Off Plan Properties"
-          />
-        </Suspense>
-        <FAQ
-          eyebrow={OFF_PLAN_FAQ_CONTENT.eyebrow}
-          title={OFF_PLAN_FAQ_CONTENT.title}
-          highlight={OFF_PLAN_FAQ_CONTENT.highlight}
-          description={OFF_PLAN_FAQ_CONTENT.description}
-          items={OFF_PLAN_FAQ_ITEMS}
-        />
-        <FinalCTA {...PROPERTIES_CTA_CONTENT} />
-      </main>
-    </main>
-  );
+  // return (
+  //   <main>
+  //     <main>
+  //       <PageHero {...OFF_PLAN_HERO_CONTENT} />
+  //       <Suspense fallback={null}>
+  //         <PropertiesListing
+  //           fixedStatus="off-plan"
+  //           backgroundImage={OFF_PLAN_GRID_BACKGROUND}
+  //           resultsLabel="Off Plan Properties"
+  //         />
+  //       </Suspense>
+  //       <FAQ
+  //         eyebrow={OFF_PLAN_FAQ_CONTENT.eyebrow}
+  //         title={OFF_PLAN_FAQ_CONTENT.title}
+  //         highlight={OFF_PLAN_FAQ_CONTENT.highlight}
+  //         description={OFF_PLAN_FAQ_CONTENT.description}
+  //         items={OFF_PLAN_FAQ_ITEMS}
+  //       />
+  //       <FinalCTA {...PROPERTIES_CTA_CONTENT} />
+  //     </main>
+  //   </main>
+  // );
+  notFound();
 }

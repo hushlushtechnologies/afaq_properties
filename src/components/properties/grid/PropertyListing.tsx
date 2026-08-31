@@ -134,18 +134,22 @@ export function PropertiesListing({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [appliedFilters, sort]);
 
-  useEffect(() => {
-    if (!emirate) return;
-    const validCommunities = getCommunitiesForEmirate(emirate as Emirate).map(
+  function handleEmirateChange(value: string) {
+    setEmirate(value);
+
+    if (!value) {
+      setCommunity("");
+      return;
+    }
+
+    const validCommunities = getCommunitiesForEmirate(value as Emirate).map(
       (c) => c.slug,
     );
-    if (community && !validCommunities.includes(community)) setCommunity("");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [emirate]);
 
-  useEffect(() => {
-    setVisibleCount(PAGE_SIZE);
-  }, [appliedFilters, sort]);
+    if (community && !validCommunities.includes(community)) {
+      setCommunity("");
+    }
+  }
 
   const emirateOptions = useMemo(
     () =>
@@ -209,6 +213,7 @@ export function PropertiesListing({
 
   function handleSearchSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
     setAppliedFilters({
       search,
       emirate,
@@ -220,6 +225,8 @@ export function PropertiesListing({
       minPrice: priceRange[0],
       maxPrice: priceRange[1],
     });
+
+    setVisibleCount(PAGE_SIZE);
   }
 
   function clearField<K extends keyof PropertyFilterValues>(
@@ -230,47 +237,87 @@ export function PropertiesListing({
       case "search":
         setSearch(resetValue as string);
         break;
+
       case "emirate":
         setEmirate(resetValue as string);
+
+        // If emirate is cleared, community must also be cleared.
+        if (resetValue === "") {
+          setCommunity("");
+        }
         break;
+
       case "community":
         setCommunity(resetValue as string);
         break;
+
       case "status":
         setStatus(resetValue as string);
         break;
+
       case "category":
         setCategory(resetValue as string);
         break;
+
       case "bedrooms":
         setBedrooms(resetValue as string);
         break;
+
       case "developer":
         setDeveloper(resetValue as string);
         break;
     }
-    setAppliedFilters((prev) => ({ ...prev, [key]: resetValue }));
+
+    setAppliedFilters((prev) => {
+      // Clearing emirate should also clear the applied community filter.
+      if (key === "emirate" && resetValue === "") {
+        return {
+          ...prev,
+          emirate: "",
+          community: "",
+        };
+      }
+
+      return {
+        ...prev,
+        [key]: resetValue,
+      };
+    });
+
+    // Start results from the first page again.
+    setVisibleCount(PAGE_SIZE);
   }
 
   function clearPriceRange() {
     setPriceRange([priceBounds.min, priceBounds.max]);
+
     setAppliedFilters((prev) => ({
       ...prev,
       minPrice: priceBounds.min,
       maxPrice: priceBounds.max,
     }));
+
+    // Reset infinite-scroll results back to first page.
+    setVisibleCount(PAGE_SIZE);
   }
 
   function handleReset() {
     setSearch("");
     setEmirate("");
     setCommunity("");
-    if (!fixedStatus) setStatus("");
+
+    if (!fixedStatus) {
+      setStatus("");
+    }
+
     setCategory("");
     setBedrooms("");
     setDeveloper("");
+
     setPriceRange([priceBounds.min, priceBounds.max]);
+
     setSort("featured");
+
     setAppliedFilters({
       search: "",
       emirate: "",
@@ -282,6 +329,9 @@ export function PropertiesListing({
       minPrice: priceBounds.min,
       maxPrice: priceBounds.max,
     });
+
+    // Return property results to the first 9 items.
+    setVisibleCount(PAGE_SIZE);
   }
 
   const activeFilters = [
@@ -386,7 +436,7 @@ export function PropertiesListing({
               label="Emirate"
               value={emirate}
               options={emirateOptions}
-              onChange={setEmirate}
+              onChange={handleEmirateChange}
               placeholder="All Emirates"
             />
             <SelectDropdown
@@ -483,7 +533,10 @@ export function PropertiesListing({
               ariaLabel="Sort properties by"
               value={sort}
               options={SORT_OPTIONS}
-              onChange={(v) => setSort(v as PropertySort)}
+              onChange={(v) => {
+                setSort(v as PropertySort);
+                setVisibleCount(PAGE_SIZE);
+              }}
               className="w-48"
             />
             <div className="flex items-center gap-1 rounded border border-border p-1">

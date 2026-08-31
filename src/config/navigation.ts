@@ -1,6 +1,7 @@
 export interface NavLink {
   label: string;
   href: string;
+  enabled?: boolean;
 }
 
 export interface CTAButton {
@@ -9,16 +10,15 @@ export interface CTAButton {
 }
 
 export const NAV_LINKS: NavLink[] = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Properties", href: "/properties" },
-  { label: "Off-Plan", href: "/off-plan" },
-  { label: "Ready Proprties", href: "/ready" },
-  { label: "Rental", href: "/rental" },
-  { label: "Service", href: "/services" },
-  { label: "Careers", href: "/careers" },
-  { label: "Contact Us", href: "/contact-us" },
-  
+  { label: "Home", href: "/", enabled: true },
+  { label: "About Us", href: "/about-us", enabled: true },
+  { label: "Properties", href: "/properties", enabled: false },
+  { label: "Off-Plan", href: "/off-plan", enabled: false },
+  { label: "Ready Properties", href: "/ready", enabled: false },
+  { label: "Rental", href: "/rental", enabled: false },
+  { label: "Service", href: "/services", enabled: true },
+  { label: "Careers", href: "/careers", enabled: true },
+  { label: "Contact Us", href: "/contact-us", enabled: true },
 ];
 
 export const NAV_CTA: CTAButton = {

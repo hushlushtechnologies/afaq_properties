@@ -11,6 +11,7 @@ import {
 } from "@/data/readyproperties/ready-properties-faq";
 import { FinalCTA } from "@/components/home/cta/FinalCTA";
 import { PROPERTIES_CTA_CONTENT } from "@/data/properties/properties-cta";
+import { notFound } from "next/navigation";
 
 export const metadata = buildMetadata({
   title: "Ready Properties",
@@ -20,24 +21,25 @@ export const metadata = buildMetadata({
 });
 
 export default function ReadyPage() {
-  return (
-    <main>
-      <PageHero {...READY_PROPERTIES_HERO_CONTENT} />
-      <Suspense fallback={null}>
-        <PropertiesListing
-          fixedStatus="completed"
-          backgroundImage={READY_PROPERTIES_GRID_BACKGROUND}
-          resultsLabel="Ready Properties"
-        />
-      </Suspense>
-      <FAQ
-        eyebrow={READY_PROPERTIES_FAQ_CONTENT.eyebrow}
-        title={READY_PROPERTIES_FAQ_CONTENT.title}
-        highlight={READY_PROPERTIES_FAQ_CONTENT.highlight}
-        description={READY_PROPERTIES_FAQ_CONTENT.description}
-        items={READY_PROPERTIES_FAQ_ITEMS}
-      />
-      <FinalCTA {...PROPERTIES_CTA_CONTENT} />
-    </main>
-  );
+  // return (
+  //   <main>
+  //     <PageHero {...READY_PROPERTIES_HERO_CONTENT} />
+  //     <Suspense fallback={null}>
+  //       <PropertiesListing
+  //         fixedStatus="completed"
+  //         backgroundImage={READY_PROPERTIES_GRID_BACKGROUND}
+  //         resultsLabel="Ready Properties"
+  //       />
+  //     </Suspense>
+  //     <FAQ
+  //       eyebrow={READY_PROPERTIES_FAQ_CONTENT.eyebrow}
+  //       title={READY_PROPERTIES_FAQ_CONTENT.title}
+  //       highlight={READY_PROPERTIES_FAQ_CONTENT.highlight}
+  //       description={READY_PROPERTIES_FAQ_CONTENT.description}
+  //       items={READY_PROPERTIES_FAQ_ITEMS}
+  //     />
+  //     <FinalCTA {...PROPERTIES_CTA_CONTENT} />
+  //   </main>
+  // );
+  notFound();
 }

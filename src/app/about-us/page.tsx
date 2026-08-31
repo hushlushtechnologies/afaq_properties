@@ -33,7 +33,7 @@ export default function AboutUsPage() {
       <Section className="bg-hero-gradient">
         <DeveloperNetwork />
       </Section>
-      <TeamGrid />
+      {/* <TeamGrid /> */}
       <FinalCTA {...ABOUT_CTA_CONTENT} />
     </main>
   );
