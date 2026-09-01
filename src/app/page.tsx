@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { Hero } from "@/components/home/Hero";
 import { LocationExplorer } from "@/components/home/location/LocationExplorer";
 import { PropertyOpportunity } from "@/components/home/propertyJourney/PropertyOpportunity";
+import { EmiratiOffers } from "@/components/ui/offers/EmiratiOffers";
 
 const FeaturedProperties = dynamic(
   () =>
@@ -58,6 +59,13 @@ export default function Home() {
       <Hero />
       {/* <LocationExplorer /> */}
       <PropertyOpportunity />
+      <EmiratiOffers
+        propertyImage="/assets/random/emirati.png"
+        backgroundArtwork="/assets/bgAssets/offbg.jpg"
+        campaignLogo="/assets/random/off.svg"
+        enquiryHref="/enquiry"
+        whatsappHref="https://wa.me/971XXXXXXXXX"
+      />
       {/* <FeaturedProperties /> */}
       <WhyAfaq />
       <FeaturedDevelopers />
