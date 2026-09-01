@@ -1,4 +1,7 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { lora, publicSans } from "@/lib/fonts";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -90,6 +93,9 @@ export default function RootLayout({
           {children}
           <Footer />
           <WhatsAppFloatingBar />
+          <Analytics />
+          <GoogleAnalytics />
+          <SpeedInsights />
         </BrochureModalProvider>
       </body>
     </html>
