@@ -93,7 +93,7 @@ export function Navbar() {
                       key={link.href}
                       href={link.href}
                       className={cn(
-                        "relative font-body text-xs text-text-secondary transition-colors duration-400 hover:text-accent",
+                        "relative font-body text-sm text-text-secondary transition-colors duration-400 hover:text-accent",
                         isActive && "text-primary",
                       )}
                     >

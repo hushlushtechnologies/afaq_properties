@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.afaqalmanzil.com";
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+  "https://www.afaqalmanzilproperties.com/";
 
 const ROUTES: {
   path: string;

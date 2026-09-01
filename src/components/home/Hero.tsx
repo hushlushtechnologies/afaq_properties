@@ -96,7 +96,7 @@ export function Hero() {
         {HERO_CONTENT.brandText}
       </motion.p>
 
-      <Container className="relative z-10 flex min-h-screen flex-col justify-between sm:pt-56 pb-28 pt-32  ">
+      <Container className="relative z-10 flex min-h-screen flex-col justify-between sm:pt-56 pb-44 pt-32  ">
         <motion.div
           variants={container}
           initial="hidden"

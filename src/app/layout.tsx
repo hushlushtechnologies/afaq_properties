@@ -7,7 +7,8 @@ import { WhatsAppFloatingBar } from "@/components/layout/WhatsAppFloatingBar";
 import { BrochureModalProvider } from "@/context/BrochureModal";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.afaqalmanzilproperties.com/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

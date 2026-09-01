@@ -2,7 +2,8 @@ import { COMPANY_CONTACT } from "@/config/footer";
 import { SOCIAL_LINKS } from "@/config/social";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.afaqalmanzil.com";
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+  "https://www.afaqalmanzilproperties.com/";
 
 export function getOrganizationSchema() {
   return {
