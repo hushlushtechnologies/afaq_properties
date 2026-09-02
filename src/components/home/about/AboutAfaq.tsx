@@ -27,7 +27,7 @@ const CONTENT = {
   ],
   primaryCta: { label: "Discover Our Story", href: "/about-us" },
   secondaryCta: { label: "Explore Properties", href: "/properties" },
-  image: "/assets/office/reception.jpeg",
+  image: "/assets/office/off5.jpg",
 };
 
 export function AboutAfaq() {
