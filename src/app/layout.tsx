@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { CookieConsentBanner } from "@/components/legal/CookieeConsentBanner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { lora, publicSans } from "@/lib/fonts";
 import { Navbar } from "@/components/layout/Navbar";
@@ -96,6 +97,7 @@ export default function RootLayout({
           <Analytics />
           <GoogleAnalytics />
           <SpeedInsights />
+          <CookieConsentBanner />
         </BrochureModalProvider>
       </body>
     </html>

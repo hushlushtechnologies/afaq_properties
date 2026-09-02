@@ -10,6 +10,7 @@ import {
 } from "@/data/service/approach";
 import { FinalCTA } from "@/components/home/cta/FinalCTA";
 import { SERVICE_CTA_CONTENT } from "@/data/service/service-cta";
+import { EmiratiOffers } from "@/components/ui/offers/EmiratiOffers";
 
 export const metadata = buildMetadata({
   title: "Services",
@@ -23,6 +24,7 @@ export default function ServicesPage() {
     <main>
       <ServicesHero />
       <Services />
+      <EmiratiOffers />
       <PropertyOpportunity />
       <WhyAfaq />
       <PropertyJourney image={OUR_APPROACH_IMAGE} steps={OUR_APPROACH_STEPS} />

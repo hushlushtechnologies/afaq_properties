@@ -23,6 +23,7 @@ export const FOOTER_COMPANY_LINKS: FooterLink[] = [
 export const FOOTER_LEGAL_LINKS: FooterLink[] = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms & Conditions", href: "/terms-conditions" },
+  { label: "Cookie Settings", href: "#cookie-settings" },
 ];
 
 export const COMPANY_CONTACT = {

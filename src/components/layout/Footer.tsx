@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -91,15 +93,29 @@ export function Footer() {
           </Button>
 
           <div className="flex items-center gap-5">
-            {FOOTER_LEGAL_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="font-body text-xs text-subtle transition-colors duration-400 hover:text-primary"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {FOOTER_LEGAL_LINKS.map((link) =>
+              link.href === "#cookie-settings" ? (
+                <button
+                  key={link.href}
+                  type="button"
+                  onClick={() => {
+                    localStorage.removeItem("afaq-cookie-consent");
+                    window.location.reload();
+                  }}
+                  className="font-body text-body-sm text-text-secondary transition-colors duration-400 hover:text-primary"
+                >
+                  {link.label}
+                </button>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="font-body text-body-sm text-text-secondary transition-colors duration-400 hover:text-primary"
+                >
+                  {link.label}
+                </Link>
+              ),
+            )}
           </div>
         </div>
       </Container>

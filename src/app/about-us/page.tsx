@@ -12,6 +12,7 @@ import { DeveloperNetwork } from "@/components/home/developer/DeveloperNetwork";
 import { TeamGrid } from "@/components/home/team/TeamGrid";
 import { FinalCTA } from "@/components/home/cta/FinalCTA";
 import { ABOUT_CTA_CONTENT } from "@/data/about/about-cta";
+import { EmiratiOffers } from "@/components/ui/offers/EmiratiOffers";
 
 export const metadata = buildMetadata({
   title: "About Us",
@@ -26,6 +27,7 @@ export default function AboutUsPage() {
       <AboutHero />
       <AboutStory />
       <OurDirection />
+      <EmiratiOffers />
       <WhatWeStandFor />
       <OurExpertise />
       <WhyTrustUs />

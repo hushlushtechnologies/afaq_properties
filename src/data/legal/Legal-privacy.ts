@@ -149,7 +149,7 @@ export const PRIVACY_POLICY_SECTIONS: LegalSection[] = [
       },
       {
         type: "paragraph",
-        text: "You can manage cookies through your browser settings. Where required by applicable law, we will provide appropriate cookie notices or consent options.",
+        text: 'When you first visit our website, you\'ll be asked to accept or reject non-essential cookies such as analytics. You can change your choice at any time using the "Cookie Settings" link in the footer, or manage cookies directly through your browser settings.',
       },
     ],
   },
