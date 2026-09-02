@@ -7,7 +7,7 @@ export const SERVICES: Service[] = [
     title: "Residential Properties",
     description:
       "Discover apartments, villas, townhouses, and premium residences across sought-after UAE communities.",
-    image: "/assets/service/residential.jpg",
+    image: "/assets/service/residential-solution.jpg",
   },
   {
     id: "2",
@@ -15,7 +15,7 @@ export const SERVICES: Service[] = [
     title: "Commercial Properties",
     description:
       "Find strategic commercial spaces designed to support your business and long-term growth.",
-    image: "/assets/service/commercial.jpg",
+    image: "/assets/service/commercial-solution.jpg",
   },
   {
     id: "3",
@@ -31,7 +31,7 @@ export const SERVICES: Service[] = [
     title: "Off-Plan Projects",
     description:
       "Access carefully selected new developments from leading UAE developers and explore attractive opportunities.",
-    image: "/assets/service/off-plan.jpg",
+    image: "/assets/service/offplan.jpg",
   },
   {
     id: "5",
@@ -39,7 +39,7 @@ export const SERVICES: Service[] = [
     title: "Property Management",
     description:
       "Protect your investment and simplify ownership with professional property management support.",
-    image: "/assets/service/property-management.jpg",
+    image: "/assets/service/propertymanagement.jpg",
   },
   {
     id: "6",
@@ -47,7 +47,7 @@ export const SERVICES: Service[] = [
     title: "International Opportunities",
     description:
       "Explore selected property opportunities beyond the UAE with guidance tailored to your investment goals.",
-    image: "/assets/service/international.jpg",
+    image: "/assets/service/international-journey.jpg",
   },
   {
     id: "7",

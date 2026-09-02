@@ -10,7 +10,7 @@ interface DeveloperMarqueeProps {
 
 export function DeveloperMarquee({
   developers,
-  speedSeconds = 42,
+  speedSeconds = 10,
 }: DeveloperMarqueeProps) {
   // Duplicate the list so the CSS animation can loop seamlessly (translate -50%)
   const loopItems = [...developers, ...developers];

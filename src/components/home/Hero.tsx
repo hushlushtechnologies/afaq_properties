@@ -72,15 +72,11 @@ export function Hero() {
         transition={{ duration: DURATION.cinematic, ease: EASE_SMOOTH }}
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source
-          src="/hero_vedio.mp4"
-          media="(max-width: 767px)"
-          type="video/mp4"
-        />
-        <source src="/hero_vedio.mp4" type="video/mp4" />
+        <source src="/dubai.mp4" media="(max-width: 767px)" type="video/mp4" />
+        <source src="/dubai.mp4" type="video/mp4" />
       </motion.video>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/85" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-[#000614]/65 to-[#000614]" />
 
       <motion.p
         aria-hidden="true"
