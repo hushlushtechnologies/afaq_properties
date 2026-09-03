@@ -19,36 +19,36 @@ interface ParallaxImageProps {
 export function ParallaxImage({
   children,
   className,
-  strength = 20,
+  strength = 14,
 }: ParallaxImageProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const shouldReduceMotion = useReducedMotion();
 
+  const shouldReduceMotion = useReducedMotion();
   const isMobile = useMediaQuery("(max-width: 767px)");
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
+
   const disabled = shouldReduceMotion || isMobile;
-  const y = useTransform(
+
+  const rawY = useTransform(
     scrollYProgress,
     [0, 1],
     disabled ? [0, 0] : [-strength, strength],
   );
 
+  // Keeps the raster image aligned to physical CSS pixels
+  // instead of continuously rendering at fractional positions.
+  const y = useTransform(rawY, (value) => Math.round(value));
+
   return (
-    <div ref={ref} className={cn("relative overflow-hidden", className)}>
-      <motion.div
-        style={{
-          y,
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: -strength - 8,
-          bottom: -strength - 8,
-        }}
-      >
+    <div
+      ref={ref}
+      className={cn("relative isolate overflow-hidden", className)}
+    >
+      <motion.div style={{ y }} className="absolute -inset-y-6 inset-x-0">
         {children}
       </motion.div>
     </div>

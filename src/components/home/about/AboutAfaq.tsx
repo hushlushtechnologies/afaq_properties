@@ -27,7 +27,7 @@ const CONTENT = {
   ],
   primaryCta: { label: "Discover Our Story", href: "/about-us" },
   secondaryCta: { label: "Explore Properties", href: "/properties" },
-  image: "/assets/office/off5.jpg",
+  image: "/assets/office/off6.jpeg",
 };
 
 export function AboutAfaq() {
@@ -65,14 +65,14 @@ export function AboutAfaq() {
           transition={{ duration: 0.9, ease: EASE_SMOOTH }}
           className="relative h-72 w-full overflow-hidden rounded-md border border-border sm:h-96 md:h-[420px] lg:h-[520px]"
         >
-          <ParallaxImage className="h-full w-full">
+          <ParallaxImage className="h-full w-full" strength={14}>
             <Image
               src={CONTENT.image}
               alt="Afaq Al Manzil advisors meeting with clients"
               fill
               priority
-              quality={90}
-              sizes="(min-width: 640px) 30vw, 90vw"
+              quality={95}
+              sizes="(min-width: 1440px) 640px, (min-width: 1024px) 50vw, (min-width: 768px) 45vw, 90vw"
               className="object-cover"
             />
           </ParallaxImage>
