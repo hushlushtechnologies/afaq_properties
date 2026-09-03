@@ -71,7 +71,7 @@ export function AboutAfaq() {
               alt="Afaq Al Manzil advisors meeting with clients"
               fill
               priority
-              quality={95}
+              quality={90}
               sizes="(min-width: 1440px) 640px, (min-width: 1024px) 50vw, (min-width: 768px) 45vw, 90vw"
               className="object-cover"
             />
