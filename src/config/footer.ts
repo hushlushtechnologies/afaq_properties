@@ -31,4 +31,5 @@ export const COMPANY_CONTACT = {
   email: "info@afaqalmanzilproperties.com",
   address:
     "AL Zarooni Building - Office no - 501 Sheikh Zayed Rd - near insurance market metro - Al Barsha First - Al Barsha - Dubai",
+  googleMapsUrl: "https://maps.app.goo.gl/PA2BdwifAnzWsa7w6",
 };
