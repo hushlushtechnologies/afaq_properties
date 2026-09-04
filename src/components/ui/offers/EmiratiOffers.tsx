@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { trackEvent } from "@/lib/analytics";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
@@ -102,6 +103,7 @@ export function EmiratiOffers() {
               variant="primary"
               size="md"
               icon={content.primaryCta.icon}
+              onClick={() => trackEvent("emirati_offer_enquiry_click")}
               className="rounded"
             >
               {content.primaryCta.label}
@@ -112,6 +114,7 @@ export function EmiratiOffers() {
               variant="outline"
               size="md"
               icon={content.secondaryCta.icon}
+              onClick={() => trackEvent("emirati_offer_whatsapp_click")}
               className="rounded"
             >
               {content.secondaryCta.label}
@@ -125,6 +128,7 @@ export function EmiratiOffers() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={circleIn}
+            onViewportEnter={() => trackEvent("emirati_offer_section_view")}
             className="relative mx-auto aspect-square w-full overflow-hidden rounded-full border-4 border-primary shadow-lg"
           >
             <Image

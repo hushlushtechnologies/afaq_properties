@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { trackEvent } from "@/lib/analytics";
 import {
   Send,
   User,
@@ -115,10 +116,12 @@ export function EnquiryForm() {
     try {
       await sendEnquiryEmail(values);
       setStatus("success");
+      trackEvent("enquiry_form_submit_success");
       reset();
     } catch (error) {
       console.error("Enquiry form submission failed:", error);
       setStatus("error");
+      trackEvent("enquiry_form_submit_error");
     }
   }
 

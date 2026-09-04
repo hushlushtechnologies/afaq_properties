@@ -4,6 +4,8 @@ import { Hero } from "@/components/home/Hero";
 import { LocationExplorer } from "@/components/home/location/LocationExplorer";
 import { PropertyOpportunity } from "@/components/home/propertyJourney/PropertyOpportunity";
 import { EmiratiOffers } from "@/components/ui/offers/EmiratiOffers";
+import { InvestmentPosterSection } from "@/components/ui/offers/InvestmentPoster";
+import { INVESTMENT_POSTER_CONTENT } from "@/data/offer/investment";
 
 const FeaturedProperties = dynamic(
   () =>
@@ -59,6 +61,7 @@ export default function Home() {
       <Hero />
       {/* <LocationExplorer /> */}
       <PropertyOpportunity />
+      <InvestmentPosterSection {...INVESTMENT_POSTER_CONTENT} />
       <EmiratiOffers />
       {/* <FeaturedProperties /> */}
       <WhyAfaq />

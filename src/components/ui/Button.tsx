@@ -42,6 +42,7 @@ export function Button({
   icon: Icon,
   className,
   children,
+  onClick,
   ...props
 }: ButtonProps) {
   const classes = cn(
@@ -65,14 +66,21 @@ export function Button({
 
   if (href) {
     return (
-      <Link href={href} target={target} className={classes}>
+      <Link
+        href={href}
+        target={target}
+        className={classes}
+        onClick={
+          onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>
+        }
+      >
         {content}
       </Link>
     );
   }
 
   return (
-    <button className={classes} {...props}>
+    <button className={classes} onClick={onClick} {...props}>
       {content}
     </button>
   );

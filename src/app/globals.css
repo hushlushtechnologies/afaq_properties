@@ -129,3 +129,95 @@ button {
   cursor: pointer;
   box-shadow: 0 0 0 1px var(--color-primary);
 }
+
+/* Investment Poster — animated gold border glow */
+.investment-frame {
+  position: relative;
+  border-radius: 1rem;
+  padding: 1.5px;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(246, 191, 9, 0.6) 100%,
+    rgba(9, 95, 243, 0.4) 100%,
+    rgba(255, 213, 75, 0.6) 100%,
+    transparent 100%
+  );
+  background-size: 240% 240%;
+  animation: investment-border-glow 8s ease-in-out infinite;
+}
+.investment-frame-inner {
+  position: relative;
+  border-radius: calc(1rem - 2px);
+  overflow: hidden;
+  background: var(--color-background);
+}
+@keyframes investment-border-glow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Soft ambient glow behind the poster */
+.investment-glow-bg {
+  position: absolute;
+  inset: -8%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(201, 162, 39, 0.16),
+    transparent 60%
+  );
+  filter: blur(48px);
+  animation: investment-glow-pulse 5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes investment-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Periodic light sweep across the poster */
+.investment-sweep {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.investment-sweep::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 35%;
+  height: 200%;
+  background: linear-gradient(
+    75deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    rgba(201, 162, 39, 0.28),
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(8deg);
+  animation: investment-sweep-move 10s ease-in-out infinite;
+}
+@keyframes investment-sweep-move {
+  0% {
+    left: -60%;
+  }
+  12% {
+    left: 140%;
+  }
+  100% {
+    left: 140%;
+  }
+}

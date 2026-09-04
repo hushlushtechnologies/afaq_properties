@@ -13,6 +13,8 @@ import { TeamGrid } from "@/components/home/team/TeamGrid";
 import { FinalCTA } from "@/components/home/cta/FinalCTA";
 import { ABOUT_CTA_CONTENT } from "@/data/about/about-cta";
 import { EmiratiOffers } from "@/components/ui/offers/EmiratiOffers";
+import { InvestmentPosterSection } from "@/components/ui/offers/InvestmentPoster";
+import { INVESTMENT_POSTER_CONTENT } from "@/data/offer/investment";
 
 export const metadata = buildMetadata({
   title: "About Us",
@@ -26,6 +28,7 @@ export default function AboutUsPage() {
     <main>
       <AboutHero />
       <AboutStory />
+      <InvestmentPosterSection {...INVESTMENT_POSTER_CONTENT} />
       <OurDirection />
       <EmiratiOffers />
       <WhatWeStandFor />

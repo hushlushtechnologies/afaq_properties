@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/TextArea";
 import { Button } from "@/components/ui/Button";
 import { FormStatus } from "@/components/contactUs/form/FormStatus";
+import { trackEvent } from "@/lib/analytics";
 import { Home, Building2, RotateCcw, MessageCircle } from "lucide-react";
 import {
   contactFormSchema,
@@ -58,10 +59,12 @@ export function ContactForm() {
     try {
       await sendContactEmail(values);
       setStatus("success");
+      trackEvent("contact_form_submit_success");
       reset();
     } catch (error) {
       console.error("Contact form submission failed:", error);
       setStatus("error");
+      trackEvent("contact_form_submit_error");
     }
   }
 
