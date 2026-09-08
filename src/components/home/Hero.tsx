@@ -66,14 +66,18 @@ export function Hero() {
         muted
         playsInline
         preload="metadata"
-        poster="/assets/random/trust.jpg"
+        poster="/dubai.jpg"
         initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 1.04 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: DURATION.cinematic, ease: EASE_SMOOTH }}
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/dubai.mp4" media="(max-width: 767px)" type="video/mp4" />
-        <source src="/dubai.mp4" type="video/mp4" />
+        <source
+          src="/hero-video.mov"
+          media="(max-width: 767px)"
+          type="video/mp4"
+        />
+        <source src="/hero-video.mov" type="video/mp4" />
       </motion.video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-[#000614]/65 to-[#000614]" />
