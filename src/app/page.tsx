@@ -62,8 +62,8 @@ export default function Home() {
       {/* <LocationExplorer /> */}
       <PropertyOpportunity />
       <InvestmentPosterSection {...INVESTMENT_POSTER_CONTENT} />
-      <EmiratiOffers />
-      {/* <FeaturedProperties /> */}
+      {/* <EmiratiOffers /> */}
+      <FeaturedProperties />
       <WhyAfaq />
       <FeaturedDevelopers />
       <AboutAfaq />

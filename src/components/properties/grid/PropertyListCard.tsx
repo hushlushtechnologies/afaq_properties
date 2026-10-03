@@ -95,7 +95,7 @@ export function PropertyListCard({
               Get Brochure
             </Button>
             <Button
-              href={`/contact-us?property=${property.slug}`}
+              href={`/enquiry-now?property=${property.slug}`}
               variant="ghost"
               size="sm"
             >

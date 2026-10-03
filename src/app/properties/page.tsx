@@ -4,7 +4,7 @@ import { PropertiesHero } from "@/components/properties/hero/PropertiesHero";
 import { PropertiesListing } from "@/components/properties/grid/PropertyListing";
 import { FinalCTA } from "@/components/home/cta/FinalCTA";
 import { PROPERTIES_CTA_CONTENT } from "@/data/properties/properties-cta";
-import { notFound } from "next/navigation";
+// import { notFound } from "next/navigation";
 
 export const metadata = buildMetadata({
   title: "Properties",
@@ -14,12 +14,14 @@ export const metadata = buildMetadata({
 });
 
 export default function PropertiesPage() {
-  // <main>
-  //   <PropertiesHero />
-  //   <Suspense fallback={null}>
-  //     <PropertiesListing />
-  //     <FinalCTA {...PROPERTIES_CTA_CONTENT} />
-  //   </Suspense>
-  // </main>
-  notFound();
+  return (
+    <main>
+      <PropertiesHero />
+      <Suspense fallback={null}>
+        <PropertiesListing />
+        <FinalCTA {...PROPERTIES_CTA_CONTENT} />
+      </Suspense>
+    </main>
+  );
+  // notFound();
 }

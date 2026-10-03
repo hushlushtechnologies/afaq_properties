@@ -1,62 +1,110 @@
 [
   {
-    "slug": "downtown-dubai",
-    "name": "Downtown Dubai",
+    "slug": "sheikh-zayed-road",
+    "name": "Sheikh Zayed Road",
     "emirate": "dubai",
-    "image": "/assets/community/downtown.jpg",
+    "image": "/assets/community/sheikh-zayed-road.jpg",
     "featured": true
   },
   {
-    "slug": "dubai-marina",
-    "name": "Dubai Marina",
+    "slug": "dubailand",
+    "name": "DubaiLand",
     "emirate": "dubai",
     "image": "/assets/community/dubai-marina.jpg",
     "featured": true
   },
   {
-    "slug": "business-bay",
-    "name": "Business Bay",
+    "slug": "dubai-harbour",
+    "name": "Dubai Harbour",
     "emirate": "dubai",
-    "image": "/assets/community/business-bay.jpg",
+    "image": "/assets/community/dubai-harbour.jpg",
     "featured": true
   },
   {
-    "slug": "palm-jumeirah",
-    "name": "Palm Jumeirah",
+    "slug": "dubai",
+    "name": "dubai",
     "emirate": "dubai",
-    "image": "/assets/community/palm-jumeirah.jpg",
-    "featured": true
+    "image": "/assets/community/palm-jumeirah.jpg"
   },
   {
-    "slug": "jumeirah-village-circle",
-    "name": "Jumeirah Village Circle",
+    "slug": "nad-al-sheba",
+    "name": "Nad Al Sheba",
     "emirate": "dubai",
-    "image": "/assets/community/jumeirah-village.jpg",
+    "image": "/assets/community/nad-al-sheba.jpg",
     "featured": true
   },
 
   {
-    "slug": "al-reem-island",
-    "name": "Al Reem Island",
-    "emirate": "abu-dhabi",
-    "image": "/assets/community/al-reem-island.jpg"
+    "slug": "business-bay",
+    "name": "Business Bay",
+    "emirate": "dubai",
+    "image": "/assets/community/business-bay.jpg"
   },
   {
-    "slug": "al-majaz",
-    "name": "Al Majaz",
-    "emirate": "sharjah",
-    "image": "/assets/community/al-majaz.jpg"
+    "slug": "al-jadaf",
+    "name": "Al Jadaf",
+    "emirate": "dubai",
+    "image": "/assets/community/al-jadaf.jpg",
+    "featured": true
   },
   {
-    "slug": "al-hamra-village",
-    "name": "Al Hamra Village",
+    "slug": "jumaeirah-village-circle",
+    "name": "Jumaeirah Village Circle",
+    "emirate": "dubai",
+    "image": "/assets/community/jumaeirah-village-circle.jpg"
+  },
+  {
+    "slug": "meydan",
+    "name": "Meydan",
+    "emirate": "dubai",
+    "image": "/assets/community/meydan.jpg"
+  },
+  {
+    "slug": "academic-city",
+    "name": "Academic City",
+    "emirate": "dubai",
+    "image": "/assets/community/academic-city.jpg"
+  },
+  {
+    "slug": "maritime-city",
+    "name": "Maritime City",
+    "emirate": "dubai",
+    "image": "/assets/community/maritime-city.jpg"
+  },
+  {
+    "slug": "dip-2",
+    "name": "DIP-2",
+    "emirate": "dubai",
+    "image": "/assets/community/dip-2.jpg"
+  },
+  {
+    "slug": "dlrc",
+    "name": "DLRC",
+    "emirate": "dubai",
+    "image": "/assets/community/dlrc.jpg"
+  },
+  {
+    "slug": "warsan",
+    "name": "Warsan",
+    "emirate": "dubai",
+    "image": "/assets/community/warsan.jpg"
+  },
+  {
+    "slug": "jebel-ali",
+    "name": "Jebel Ali",
+    "emirate": "dubai",
+    "image": "/assets/community/jebel-ali.jpg"
+  },
+  {
+    "slug": "dubai-industrial-city",
+    "name": "Dubai Industrial City",
+    "emirate": "dubai",
+    "image": "/assets/community/dubai-industrial-city.jpg"
+  },
+  {
+    "slug": "ras-al-khaimah",
+    "name": "Ras Al Khaimah",
     "emirate": "ras-al-khaimah",
-    "image": "/assets/community/al-hamra-village.jpg"
-  },
-  {
-    "slug": "ajman-corniche",
-    "name": "Ajman Corniche",
-    "emirate": "ajman",
-    "image": "/assets/community/ajman-corniche.jpg"
+    "image": "/assets/community/ras-al-khaimah.jpg"
   }
 ]

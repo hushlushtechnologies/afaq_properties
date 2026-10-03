@@ -1,34 +1,90 @@
 [
   {
     "id": "1",
-    "name": "Emaar Properties",
-    "slug": "emaar-properties",
-    "logo": "/assets/developer/emaar.svg",
-    "description": "Leading UAE master developer.",
-    "website": "https://www.emaar.com"
-  },
-  {
-    "id": "2",
-    "name": "Damac Properties",
-    "slug": "damac-properties",
-    "logo": "/assets/developer/damac.svg",
-    "description": "Luxury real estate developer.",
-    "website": "https://www.damacproperties.com"
-  },
-  {
-    "id": "3",
-    "name": "Aldar Properties",
-    "slug": "aldar-properties",
-    "logo": "/assets/developer/aldar.svg",
-    "description": "Abu Dhabi's leading developer.",
-    "website": "https://www.aldar.com"
-  },
-  {
-    "id": "4",
     "name": "Sobha Realty",
     "slug": "sobha-realty",
     "logo": "/assets/developer/sobha.svg",
     "description": "Premium residential developer.",
-    "website": "https://www.sobharealty.com"
+    "website": "https://sobharealty.com/"
+  },
+  {
+    "id": "2",
+    "name": "Binghatti",
+    "slug": "binghatti",
+    "logo": "/assets/developer/binghatti.svg",
+    "description": "Luxury real estate developer.",
+    "website": "https://www.binghatti.com"
+  },
+  {
+    "id": "3",
+    "name": "DAMAC Properties",
+    "slug": "damac-properties",
+    "logo": "/assets/developer/damac.svg",
+    "description": "Leading UAE master developer.",
+    "website": "https://www.damacproperties.com"
+  },
+  {
+    "id": "4",
+    "name": "Tarrad Development",
+    "slug": "tarrad-properties",
+    "logo": "/assets/developer/tarrad.png",
+    "description": "Premium residential developer.",
+    "website": "https://www.tarrad.ae"
+  },
+  {
+    "id": "5",
+    "name": "Samana Developers",
+    "slug": "samana",
+    "logo": "/assets/developer/samana.png",
+    "description": "Premium residential developer.",
+    "website": "https://www.samanadevelopers.com/"
+  },
+  {
+    "id": "6",
+    "name": "Zoya Developments",
+    "slug": "zoya-developments",
+    "logo": "/assets/developer/zoya.svg",
+    "description": "Leading UAE master developer.",
+    "website": "https://www.zoyadevelopments.ae/"
+  },
+  {
+    "id": "7",
+    "name": "Lapis Properties",
+    "slug": "lapis-properties",
+    "logo": "/assets/developer/lapis.webp",
+    "description": "Leading UAE master developer.",
+    "website": "https://lapisproperties.com/"
+  },
+  {
+    "id": "8",
+    "name": "Al Fulaiti Development",
+    "slug": "al-fulaiti",
+    "logo": "/assets/developer/zoya.svg",
+    "description": "Leading UAE master developer.",
+    "website": "https://alfulaitidevelopment.com/"
+  },
+  {
+    "id": "9",
+    "name": "Ayat Developments",
+    "slug": "ayat-developments",
+    "logo": "/assets/developer/ayat.png",
+    "description": "Leading UAE master developer.",
+    "website": "https://ayatdevelopment.ae/"
+  },
+  {
+    "id": "10",
+    "name": "Reef Developments",
+    "slug": "reef-developments",
+    "logo": "/assets/developer/reef.svg",
+    "description": "Leading UAE master developer.",
+    "website": "https://www.reefproperties.ae/"
+  },
+  {
+    "id": "11",
+    "name": "Imtiaz Developments",
+    "slug": "imtiaz-developments",
+    "logo": "/assets/developer/imtiaz.svg",
+    "description": "Leading UAE master developer.",
+    "website": "https://imtiaz.ae/"
   }
 ]

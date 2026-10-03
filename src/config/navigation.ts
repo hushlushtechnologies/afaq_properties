@@ -12,7 +12,7 @@ export interface CTAButton {
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/", enabled: true },
   { label: "About Us", href: "/about-us", enabled: true },
-  { label: "Properties", href: "/properties", enabled: false },
+  { label: "Properties", href: "/properties", enabled: true },
   { label: "Off-Plan", href: "/off-plan", enabled: false },
   { label: "Ready Properties", href: "/ready", enabled: false },
   { label: "Rental", href: "/rental", enabled: false },

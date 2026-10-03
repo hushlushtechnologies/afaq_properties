@@ -63,11 +63,9 @@ export function getBedRangeLabel(units: AvailableUnit[]): string {
 }
 
 export const BEDROOM_FILTER_OPTIONS = [
-  { value: "studio", label: "Studio" },
   { value: "1", label: "1 Bedroom" },
   { value: "2", label: "2 Bedrooms" },
-  { value: "3", label: "3 Bedrooms" },
-  { value: "4+", label: "4+ Bedrooms" },
+  { value: "others", label: "Other" },
 ];
 
 export function propertyMatchesBedroom(
@@ -75,11 +73,31 @@ export function propertyMatchesBedroom(
   filter: string,
 ): boolean {
   if (!filter) return true;
-  return property.availableUnits.some((u) => {
-    const count = BED_COUNT_MAP[u.type];
-    if (filter === "4+") return count >= 4;
-    if (filter === "studio") return count === 0;
-    return String(count) === filter;
+
+  const units = property.availableUnits ?? [];
+
+  // If property has no availableUnits,
+  // include it under "Other"
+  if (units.length === 0) {
+    return filter === "others";
+  }
+
+  return units.some((unit) => {
+    const count = BED_COUNT_MAP[unit.type];
+
+    if (filter === "1") {
+      return count === 1;
+    }
+
+    if (filter === "2") {
+      return count === 2;
+    }
+
+    if (filter === "others") {
+      return count !== 1 && count !== 2;
+    }
+
+    return false;
   });
 }
 
