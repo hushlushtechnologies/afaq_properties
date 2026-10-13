@@ -86,5 +86,13 @@
     "logo": "/assets/developer/imtiaz.svg",
     "description": "Leading UAE master developer.",
     "website": "https://imtiaz.ae/"
+  },
+  {
+    "id": "12",
+    "name": "Danube",
+    "slug": "danube",
+    "logo": "/assets/developer/imtiaz.svg",
+    "description": "Leading UAE master developer.",
+    "website": "https://imtiaz.ae/"
   }
 ]

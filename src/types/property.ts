@@ -24,6 +24,7 @@ export interface AvailableUnit {
     | "penthouse";
   startingPrice?: number;
 }
+export type BookingStatus = "booking-open" | "eoi-open" | "none";
 
 export interface SEO {
   title?: string;
@@ -46,7 +47,7 @@ export interface Property {
 
   emirate: Emirate;
   community: string; // references Community.slug
-
+  bookingStatus?: BookingStatus;
   status: PropertyStatus;
   category: PropertyCategory;
   developer: string; // references Developer.slug

@@ -30,5 +30,15 @@
     "slug": "fujairah",
     "name": "Fujairah",
     "image": "/images/locations/fujairah.jpg"
+  },
+  {
+    "slug": "majan",
+    "name": "Majan",
+    "image": "/images/locations/fujairah.jpg"
+  },
+  {
+    "slug": "wadi-al-safa",
+    "name": "Wadi Al Safa",
+    "image": "/images/locations/fujairah.jpg"
   }
 ]
