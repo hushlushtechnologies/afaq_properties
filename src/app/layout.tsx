@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   ],
   verification: {
     other: {
-      "facebook-domain-verification": "otv01i4ko5sbpilifauslv1lmuzpuv",
+      "facebook-domain-verification": "otv01i4ko5sbpi1ifauslv11muzpuv",
     },
   },
   openGraph: {
