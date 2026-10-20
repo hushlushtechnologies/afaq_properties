@@ -32,6 +32,11 @@ export const metadata: Metadata = {
     "Dubai property investment",
     "luxury properties UAE",
   ],
+  verification: {
+    other: {
+      "facebook-domain-verification": "otv01i4ko5sbpilifauslv1lmuzpuv",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_AE",
